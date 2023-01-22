@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>HanapTrabaho</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -24,8 +24,8 @@
      
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 left-0 px-6 py-4 sm:block">
-                    <img src="logo.png" alt="hanaptrabahologo" width="200px" height="auto">  {{-- {{ config('app.name') }} --}}
+                <div style="float:left">
+                    <img class="fixed top-0 left-0 px-6 py-4 sm:block" src="logo.png" alt="hanaptrabahologo" width="200px" height="auto"> 
                 </div>  
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
