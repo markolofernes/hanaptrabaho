@@ -19,7 +19,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="logo.png" alt="hanaptrabahologo" width="200px" height="auto">  {{-- {{ config('app.name') }} --}}
+                    <div style="position:abosolute;left: 10px;top:5px;margin:0;z-index:3">
+                    <img src="logo.png" alt="hanaptrabahologo" width="200px" height="auto">  {{-- {{ config('app.name') }} --}}</div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
