@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SeekerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/create', function () {
+    return view('seek');
+})->name('seek');
+Route::get('/employer', function () {
+    return view('employer');
+})->name('employer');
+
