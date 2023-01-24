@@ -21,7 +21,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/seek', function () {
+Route::get('/create', function () {
     return view('seek');
-});
+})->name('seek');
+Route::get('/employer', function () {
+    return view('employer');
+})->name('employer');
 
