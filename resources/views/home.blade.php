@@ -13,7 +13,7 @@
                 <div class="card-body shadow">
                     <h6>Ready for the Next Step?</h6>
                     <p class="text-muted">Create an account for tools to help you</p>
-                    <div class="d-grid gap-2">
+                    <div class="d-grid">
                         <a class="d-grid" style="text-decoration:none;" href="{{ route('seek') }}"><button
                                 class="btn btn-warning" type="submit">Job Seeker</button></a>
                         <a class="d-grid" style="text-decoration:none;" href="{{ route('employer') }}"><button

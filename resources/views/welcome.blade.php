@@ -67,66 +67,6 @@
             </form>
         </div>
     </div>
-    <hr>
-    <h3 class="text-white">Jobs</h3>
-    <div class="row gy-4 pt-5">
-        <div class="col-6">
-            <a href="{{ route('login') }}">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h5 class="card-title">{{ fake()->company }}</h5>
-                    <strong>
-                        <p>{{ fake()->jobTitle }}</p>
-                    </strong>
-                    <hr>
-                    <p class="card-text">{{ fake()->catchPhrase }}</p>
-                </div>
-            </div>
-            </a>
-        </div>
-        <div class="col-6">
-            <a href="{{ route('login') }}">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h5 class="card-title">{{ fake()->company }}</h5>
-                    <strong>
-                        <p>{{ fake()->jobTitle }}</p>
-                    </strong>
-                    <hr>
-                    <p class="card-text">{{ fake()->catchPhrase }}</p>
-                </div>
-            </div>
-            </a>
-        </div>
-        <div class="col-6">
-            <a href="{{ route('login') }}">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h5 class="card-title">{{ fake()->company }}</h5>
-                    <strong>
-                        <p>{{ fake()->jobTitle }}</p>
-                    </strong>
-                    <hr>
-                    <p class="card-text">{{ fake()->catchPhrase }}</p>
-                </div>
-            </div>
-            </a>
-        </div>
-        <div class="col-6">
-            <a href="{{ route('login') }}">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h5 class="card-title">{{ fake()->company }}</h5>
-                    <strong>
-                        <p>{{ fake()->jobTitle }}</p>
-                    </strong>
-                    <hr>
-                    <p class="card-text">{{ fake()->catchPhrase }}</p>
-                </div>
-            </div>
-            </a>
-        </div>
-    </div>
 </div>
 
 @endsection

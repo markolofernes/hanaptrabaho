@@ -33,13 +33,20 @@
         min-width: 330px;
     }
 
-    .mainImgMxSz {
-        /* max-width: 700px;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    justify-items: center; */
+    a:link {
+        padding: 5px;
+        text-decoration: none;
+        border-radius: 20px;
     }
+
+    .active {
+        background-color: #F69400;
+    }
+
+    .btn:hover {
+        background-color: #F69400;
+    }
+
 
     @media (max-width: 1100px) {
         .dsplyswitch {
@@ -71,10 +78,10 @@
                         <div>
                             @if (Route::has('login'))
                             @auth
-                            <a href="{{ url('/') }}"><button
-                                    class="btn btn-warning btn-sm rounded-pill">Home</button></a>
-                            <a href="{{ url('/home') }}"><button
-                                    class="btn btn-warning btn-sm rounded-pill">Dashboard</button></a>
+                            <a href="{{ url('/') }}"
+                                class="{{ Request::path() === '/' ? 'active' : '' }} text-white p-2">Home</a>
+                            <a href="{{ url('/home') }}"
+                                class="{{ Request::path() === 'home' ? 'active' : '' }} text-white p-2"> Dashboard</a>
                             @endauth
                             @endif
                         </div>
@@ -99,7 +106,7 @@
                         @endif
                         @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-warning" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
