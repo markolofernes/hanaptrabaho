@@ -40,7 +40,7 @@
     }
 
     .active {
-        background-color: #F69400;
+        color: #F69400;
     }
 
     .btn:hover {
@@ -58,7 +58,7 @@
 
 <body class="allBG">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+        <nav class="navbar navbar-expand-md bg-dark text-light sticky-top py-4">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div style="position:abosolute;left: 10px;top:5px;margin:0;z-index:3">
@@ -66,7 +66,7 @@
                         {{-- {{ config('app.name') }} --}}
                     </div>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -74,17 +74,17 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        <div>
-                            @if (Route::has('login'))
+                    <ul class="navbar-nav mx-auto">
+                          @if (Route::has('login'))
                             @auth
-                            <a href="{{ url('/') }}"
-                                class="{{ Request::path() === '/' ? 'active' : '' }} text-white p-2">Home</a>
-                            <a href="{{ url('/home') }}"
-                                class="{{ Request::path() === 'home' ? 'active' : '' }} text-white p-2"> Dashboard</a>
+                            <div class="text-light">
+                              <a href="{{ url('/') }}"
+                                class="{{ Request::path() === '/' ? 'active' : 'text-light' }}">Home</a>
+                              <a href="{{ url('/home') }}"
+                                class="{{ Request::path() === 'home' ? 'active' : 'text-light' }}"> Dashboard</a>
+                            </div>
                             @endauth
-                            @endif
-                        </div>
+                          @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
