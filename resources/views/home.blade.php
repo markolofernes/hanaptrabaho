@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    <h3 class="text-center text-white">Welcome!</h3>
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-7">
             <img class="img-fluid d-block w-100"
