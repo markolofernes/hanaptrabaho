@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container p-5">
-        <h1>EMPLOYER'S DASHBOARD</h1>
+        <h1>Job Seeker's Dashboard</h1>
         @foreach ($accounts as $account)
             @if ($account->id == Auth::user()->id)
                 <p>ID: {{ $account->id }}</p> 
@@ -18,10 +18,11 @@
             @endif
 
         @endforeach
+
         {{-- <form class="form-signup bg-light border shadow rounded p-5">
         @csrf
 
-            <h1 class="h3 mb-3 text-center">Please sign up as employer</h1>
+            <h1 class="h3 mb-3 text-center">Please sign up as employee</h1>
             <label for="name" class="sr-only">Name</label>
             <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
             <label for="phone" class="sr-only">Phone</label>
