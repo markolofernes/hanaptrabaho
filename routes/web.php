@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SeekerController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +21,22 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/create', function () {
+// Route::get('/create', function () {
+//     return view('seek');
+// })->name('seek');
+
+Route::get('/seek', function () {
     return view('seek');
 })->name('seek');
+
 Route::get('/employer', function () {
     return view('employer');
 })->name('employer');
 
+
+Route::post('/createaccount', [UserController::class, 'update'])->name('createaccount');
+
+
+// Route::get('/employer', function () {
+//     return view('employer');
+// })->name('employer');
