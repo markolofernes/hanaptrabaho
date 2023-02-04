@@ -52,6 +52,14 @@
             display: none;
         }
     }
+    footer{
+        position: fixed;
+        bottom: 0;
+        text-align: center;
+        align-self: center;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
     </style>
 </head>
 
