@@ -60,12 +60,13 @@
         left: 50%;
         transform: translate(-50%, 0);
     }
+
     </style>
 </head>
 
 <body class="allBG">
     <div id="app">
-        <nav class="navbar navbar-expand-md bg-dark text-light sticky-top py-4">
+        <nav class="navbar navbar-expand-md bg-body-tertiary bg-dark text-light sticky-top py-4">  
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div style="position:abosolute;left: 10px;top:5px;margin:0;z-index:3">
@@ -73,7 +74,7 @@
                         {{-- {{ config('app.name') }} --}}
                     </div>
                 </a>
-                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
