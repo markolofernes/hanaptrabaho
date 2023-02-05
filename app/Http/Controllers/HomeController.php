@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JobPost;
 use Illuminate\Http\Request;
 use App\Models\Account;
 
@@ -26,7 +27,12 @@ class HomeController extends Controller
     {
         // $user = Account::find(1)->user;
         // return view('home', compact('user'));
-        return view('home');
+        // return view('home');
+        return view('welcome')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(6));
+
+        // return view('welcome')->with('jobposts', JobPost::get());
+
+
     }
 
     public function account($id)

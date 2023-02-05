@@ -13,9 +13,7 @@
                     @if ( Auth::user()->accounttype == 'unsigned')
                     <h6>Ready for the Next Step?</h6>
                     <p class="text-muted">Create an account for tools to help you</p>
-                   
                     <h5>Registered email: {{ Auth::user()->email }}</h5>
-                {{-- STARTER ------------------------------------------------ --}}
                         <form class="form-signup border shadow p-5" method="POST" action="/createaccount">
                         @csrf
                             <h1 class="h3 mb-3 text-center">Please sign up as</h1>
@@ -39,15 +37,10 @@
                                 <input type="hidden" id="companyname" name="companyname" value="unsigned">
                             <button class="btn btn-lg btn-primary btn-block mt-4 form-control"  type="submit">Next</button>
                         </form>
-                {{-- STARTER ------------------------------------------------ --}}
                     @elseif( Auth::user()->accounttype == 'seeker')
-                {{-- Jobseeker ------------------------------------------------ --}}
-                        <x-seeker />
-                {{-- Jobseeker ------------------------------------------------ --}}
+                        <x-seeker.seeker />
                      @elseif( Auth::user()->accounttype == 'employer')  
-                {{-- Employer ------------------------------------------------ --}}
-                        <x-employer />
-                {{-- Employer ------------------------------------------------ --}} 
+                        <x-employer.employer />
                     @endif
                 </div>
             </div>

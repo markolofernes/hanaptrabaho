@@ -41,6 +41,5 @@
     <button class="btn btn-lg btn-primary btn-block mt-4 form-control"  type="submit">Confirm</button>
 </form>                  
 @else
-        <h5 class="mb-3"> Hi! {{ Auth::user()->firstname }}, <br>{{ Auth::user()->companyname }}</h5>
-        <a href="/createjobpost" class="btn btn-warning">Post a job</a>
+    <x-employer.EmpDashboard />
 @endif

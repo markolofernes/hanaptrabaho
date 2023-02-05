@@ -72,152 +72,35 @@
         </div>
     </div>
 </div>
-<style>
-    .capsule{
-        display: inline-flex;
-        background-color: rgb(255, 102, 0);
-        color: black;
-        margin: 1px;
-        padding: 0 2px 0 2px;
-        font-size: 10px;
-        font-weight: bold;
-        border-radius:7px;
-        /* width: auto; */
-        /* min-width: 20%; */
-        /* max-width: 25%; */
-        text-align: center;
-    }
-    .small{
-        padding: 0;
-        margin: 2px;
-    }
-    .jobpanel{
-        /* border: 1px solid gray;  */
-        border-radius: 7px;
-        padding: 17px;
-    }
-    .jobpaneldesc{
 
-    }
-    .tableoverflow-y{
-        position: relative;
-        height: calc(100vh - 450px);
-        bottom: 10px;
-        overflow-y: scroll;
-    }
-    .hrsmall{
-        margin:3px 0 3px 0;
-        padding: 0 0 0 0;
-    }
-    .jobtableoverflow-y{
-        position: relative;
-        height: calc(100vh - 200px);
-        bottom: 10px;
-        overflow-y: scroll;
-    }
-        
-    ::-webkit-scrollbar {
-    width: 9px;
-    background: #00000025;
-    }
-
-    ::-webkit-scrollbar-track {
-    background: #0000003f;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.308);
-    border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-    background: #c7bcbc6e;
-    border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-    background: rgba(78, 78, 78, 0.753);
-    }
-</style>
 <div class="d-flex justify-content-center">
     <div class="col-1"></div>
         <div class="col-10 card p-3">
             <h3 class="text-center pt-2">Job feeds</h3>
             <div class="row">
                 <div class="col-4 jobtableoverflow-y">
-                    <div class="card p-3 mx-1 my-5 shadow-lg">
-                        <h5>Full Stack Web Developer</h5>
-                        <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
-                        <p class="small">Work from Home</p><hr class="hrsmall">
-                        <p class="small">Php 25,000 - Php 45,000</p>
-                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                        <hr class="hrsmall"><a href="#">jobdescription</a> 
-                    </div>
-                    <div class="card p-3 mx-1 my-5 shadow-lg">
-                        <h5>Front-End Web Developer</h5>
-                        <h6><i>Apple Corporation</i></h6><hr class="hrsmall">
-                        <p class="small">Work from Home</p><hr class="hrsmall">
-                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                        <hr class="hrsmall"><a href="#">jobdescription</a> 
-                    </div>
-                    <div class="card p-3 mx-1 my-5 shadow-lg">
-                        <h5>Back-End Web Developer</h5>
-                        <h6><i>Pocket Devs</i></h6><hr class="hrsmall">
-                        <p class="small">Work from Home</p><hr class="hrsmall">
-                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                        <hr class="hrsmall"><a href="#">jobdescription</a> 
-                    </div>
-                    <div class="card p-3 mx-1 my-5 shadow-lg">
-                        <h5>VUE Web Developer</h5>
-                        <h6><i>KodeGo Corporation</i></h6><hr class="hrsmall">
-                        <p class="small">Work from Home</p><hr class="hrsmall">
-                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                        <hr class="hrsmall"><a href="#">jobdescription</a> 
-                    </div>
-                    <div class="card p-3 mx-1 my-5 shadow-lg">
-                        <h5>React Developer</h5>
-                        <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
-                        <p class="small">Work from Home</p><hr class="hrsmall">
-                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                        <hr class="hrsmall"><a href="#">jobdescription</a> 
-                    </div>
-                    <div class="card p-3 mx-1 my-5 shadow-lg">
-                        <h5>Javascript Developer</h5>
-                        <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
-                        <p class="small">Work from Home</p><hr class="hrsmall">
-                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                        <hr class="hrsmall"><a href="#">jobdescription</a> 
-                    </div>
-                    <div class="card p-3 mx-1 my-5 shadow-lg">
-                        <h5>Java and Phyton Developer</h5>
-                        <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
-                        <p class="small">Work from Home</p><hr class="hrsmall">
-                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                        <hr class="hrsmall"><a href="#">jobdescription</a> 
-                    </div>
+                    @foreach ($jobposts as $jobpost)
+                        <div class="card p-3 mx-1 my-5 shadow-lg">
+                        <h5>{{ $jobpost->jobtitle }}</h5>
+                        <h6><i>{{ $jobpost->user->companyname }}</i></h6><hr class="hrsmall">
+                            <p>{{ $jobpost->joblocation }}</p>
+                            <p class="small">{{ $jobpost->jobtype }}</p><hr class="hrsmall">
+                            <p class="small"> {{ $jobpost->salary }}</p>
+                            <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
+                            <hr class="hrsmall"><a href="#">Job Description-></a> 
+                        </div>
+                    @endforeach
                     <div class="card p-3 mx-1 my-5 shadow-lg">
                         <h5>Full Stack Web Developer</h5>
                         <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
                         <p class="small">Work from Home</p><hr class="hrsmall">
                         <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                        <hr class="hrsmall"><a href="#">jobdescription</a> 
-                    </div>
-                    <div class="card p-3 mx-1 my-5 shadow-lg">
-                        <h5>Full Stack Web Developer</h5>
-                        <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
-                        <p class="small">Work from Home</p><hr class="hrsmall">
-                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                        <hr class="hrsmall"><a href="#">jobdescription</a> 
-                    </div>
-                    <div class="card p-3 mx-1 my-5 shadow-lg">
-                        <h5>Full Stack Web Developer</h5>
-                        <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
-                        <p class="small">Work from Home</p><hr class="hrsmall">
-                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                        <hr class="hrsmall"><a href="#">jobdescription</a> 
                     </div>
                 </div>
 
                 <div class="col-8">
                     <div id="jobDescPanel" class="jobpanel shadow-lg">
-                    <img style="width: 100%;" src="https://logodownload.org/wp-content/uploads/2021/08/microsoft-teams-logo-2.png" alt="">
+                    <img class="employerlogo" src="https://logodownload.org/wp-content/uploads/2021/08/microsoft-teams-logo-2.png" alt="">
 
                     <h4>Full Stack Developer (WordPress/PHP/JS/React/Vue)- job post</h4>
                     <h6>Rymera Web Co</h6> 

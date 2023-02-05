@@ -34,5 +34,5 @@
     <button class="btn btn-lg btn-primary btn-block mt-4 form-control"  type="submit">Confirm</button>
 </form>
 @else
-    <h5> Hi! {{ Auth::user()->firstname }} </h5>
+    <x-seeker.SeekDashboard />
 @endif
