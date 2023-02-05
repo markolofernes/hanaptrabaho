@@ -73,7 +73,6 @@
     </div>
 </div>
 <style>
-
     .capsule{
         display: inline-flex;
         background-color: rgb(255, 102, 0);
@@ -93,7 +92,7 @@
         margin: 2px;
     }
     .jobpanel{
-        border: 1px solid gray; 
+        /* border: 1px solid gray;  */
         border-radius: 7px;
         padding: 17px;
     }
@@ -135,19 +134,19 @@
 
     ::-webkit-scrollbar-thumb:hover {
     background: rgba(78, 78, 78, 0.753);
-
     }
 </style>
-<div class="row">
+<div class="d-flex justify-content-center">
     <div class="col-1"></div>
-        <div class="col-10 card">
-        <h3 class="text-center pt-2">Job feeds</h3>
+        <div class="col-10 card p-3">
+            <h3 class="text-center pt-2">Job feeds</h3>
             <div class="row">
                 <div class="col-4 jobtableoverflow-y">
                     <div class="card p-3 mx-1 my-5 shadow-lg">
                         <h5>Full Stack Web Developer</h5>
                         <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
                         <p class="small">Work from Home</p><hr class="hrsmall">
+                        <p class="small">Php 25,000 - Php 45,000</p>
                         <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
                         <hr class="hrsmall"><a href="#">jobdescription</a> 
                     </div>
@@ -215,9 +214,11 @@
                         <hr class="hrsmall"><a href="#">jobdescription</a> 
                     </div>
                 </div>
+
                 <div class="col-8">
-                    <div class="jobpanel shadow-lg">
-                        <button class="btn" style="right:15px;top:50px;position:absolute;border-radius:20px;background: rgba(194, 176, 176, 0.25)">X</button>
+                    <div id="jobDescPanel" class="jobpanel shadow-lg">
+                    <img style="width: 100%;" src="https://logodownload.org/wp-content/uploads/2021/08/microsoft-teams-logo-2.png" alt="">
+
                     <h4>Full Stack Developer (WordPress/PHP/JS/React/Vue)- job post</h4>
                     <h6>Rymera Web Co</h6> 
                     <p> Philippines • Remote</p>

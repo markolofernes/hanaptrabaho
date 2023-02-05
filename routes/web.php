@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JobPostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -25,17 +26,21 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     return view('seek');
 // })->name('seek');
 
-Route::get('/seek', function () {
-    return view('seek');
-})->name('seek');
-
-Route::get('/employer', function () {
-    return view('employer');
-})->name('employer');
-
+Route::post('/postjob', [JobPostController::class, 'create'])->name('postjob');
 
 Route::post('/createaccount', [UserController::class, 'update'])->name('createaccount');
 
+Route::any('/createjobpost', function () {
+    return view('createjobpost');
+})->name('createjobpost');
+
+// Route::get('/employer', function () {
+//     return view('employer');
+// })->name('employer');
+
+// Route::get('/seek', function () {
+//     return view('seek');
+// })->name('seek');
 
 // Route::get('/employer', function () {
 //     return view('employer');

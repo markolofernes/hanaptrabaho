@@ -18,6 +18,7 @@
     <style>
     body {
         max-height: 100vh;
+        width: 100%;
     }
 
     .allBG {
