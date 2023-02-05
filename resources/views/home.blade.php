@@ -1,22 +1,44 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    
+@media(max-width: 800px) {
+    .hide1{
+    display: none;
+    }
+
+}
+</style>
 <div class="container">
-    <h3 class="text-center text-white">Welcome!</h3>
-    <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-4">
-            <img class="img-fluid d-block w-100"
-                src="business-people.webp">
+    <div class="row align-items-center">
+        <div class="col hide1">
+            <img class="img-fluid d-block w-100" src="img\{{ Auth::user()->accounttype }}.webp">
         </div>
-        <div class="col-8">
+        <div class="col align-items-center"><br>
+            <div class="col-10 card shadow-lg m-5 p-3 py-5">
+                <h3 class="text-center text-white">Welcome!</h3><br>
+                @php  $name = Auth::user()->firstname @endphp
+                @if ($name !== 'unsigned')
+                    <h5>Hi!, {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</h5> 
+                @endif
+                <h6>{{ Auth::user()->email }}</h6>
+            </div>
+
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12">
             <div class="card">
                 <div class="card-body shadow">
                     @if ( Auth::user()->accounttype == 'unsigned')
                     <h6>Ready for the Next Step?</h6>
                     <p class="text-muted">Create an account for tools to help you</p>
-                    <h5>Registered email: {{ Auth::user()->email }}</h5>
+                   
+                    {{-- <h5>Registered email: {{ Auth::user()->email }}</h5> --}}
+                {{-- STARTER ------------------------------------------------ --}}
                         <form class="form-signup border shadow p-5" method="POST" action="/createaccount">
                         @csrf
-                            <h1 class="h3 mb-3 text-center">Please sign up as</h1>
+                            <h1 class="h3 mb-3 text-center">Sign up as</h1>
                             <center>
                                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                     <input type="radio" class="btn-check" name="accounttype" id="employer"  value="employer" autocomplete="off">
@@ -37,10 +59,15 @@
                                 <input type="hidden" id="companyname" name="companyname" value="unsigned">
                             <button class="btn btn-lg btn-primary btn-block mt-4 form-control"  type="submit">Next</button>
                         </form>
-                    @elseif( Auth::user()->accounttype == 'seeker')
+                {{-- STARTER ------------------------------------------------ --}}
+                     @elseif( Auth::user()->accounttype == 'seeker')
+                {{-- Jobseeker ------------------------------------------------ --}}
                         <x-seeker.seeker />
+                {{-- Jobseeker ------------------------------------------------ --}}
                      @elseif( Auth::user()->accounttype == 'employer')  
+                {{-- Employer ------------------------------------------------ --}}
                         <x-employer.employer />
+                {{-- Employer ------------------------------------------------ --}} 
                     @endif
                 </div>
             </div>

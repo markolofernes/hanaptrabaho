@@ -30,7 +30,6 @@
                                         <li>We use a number of languages including PHP, vanilla JS, jQuery, and ReactJS.</li>
                                     </ul>
                                 </textarea>
-
                                 <label class="sr-only mt-1" for="salary">Salary</label>
                                 <input class="form-control mb-2" type="text" id="salary" name="salary" placeholder="PHP 25,000 - P35,000 a month" required>
 

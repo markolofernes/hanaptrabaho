@@ -23,16 +23,36 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function employerdashboard()
+    {
+        // $user = Account::find(1)->user;
+        // return view('home', compact('user'));
+        // return view('home');
+        return view('home')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(6));
+
+        // return view('welcome')->with('jobposts', JobPost::get());
+
+
+    }
+
+    public function empdashboard()
+    {
+        // $user = Account::find(1)->user;
+        // return view('home', compact('user'));
+        // return view('home');
+        return view('home')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(6));
+
+        // return view('welcome')->with('jobposts', JobPost::get());
+
+
+    }
+
     public function index()
     {
         // $user = Account::find(1)->user;
         // return view('home', compact('user'));
         // return view('home');
         return view('welcome')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(6));
-
-        // return view('welcome')->with('jobposts', JobPost::get());
-
-
     }
 
     public function account($id)

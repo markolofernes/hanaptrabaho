@@ -26,7 +26,7 @@ Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'employerdashboard'])->name('home');
 // Route::get('/create', function () {
 //     return view('seek');
 // })->name('seek');
