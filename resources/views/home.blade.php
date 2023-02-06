@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row align-items-center">
         <div class="col hideOn800px">
-            <img class="img-fluid d-block w-100" src="img\{{ Auth::user()->accounttype }}.webp">
+            <img class="img-fluid d-block w-100" src="\img\{{ Auth::user()->accounttype }}.webp">
         </div>
         <div class="col align-items-center"><br>
             <div class="col-10 card shadow-lg m-5 p-3 py-5">
