@@ -20,5 +20,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        for($i = 0; $i <10; $i++){
+            DB::table('students')->insert([
+                'name' => fake()->name,
+                'email' => fake()->email,
+                'age' => fake()->randomDigitNotNull,
+            ]);
+        }
     }
 }
