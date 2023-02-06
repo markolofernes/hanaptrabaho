@@ -1,22 +1,19 @@
 @extends('layouts.app')
 @section('content')
-<style>
-    
-@media(max-width: 800px) {
-    .hide1{
-    display: none;
-    }
-
-}
-</style>
+@if ( Auth::user() == null )
+    @php
+    header('Location:/');
+    exit;
+    @endphp
+@else
 <div class="container">
     <div class="row align-items-center">
-        <div class="col hide1">
+        <div class="col hideOn800px">
             <img class="img-fluid d-block w-100" src="img\{{ Auth::user()->accounttype }}.webp">
         </div>
         <div class="col align-items-center"><br>
             <div class="col-10 card shadow-lg m-5 p-3 py-5">
-                <h3 class="text-center text-white">Welcome!</h3><br>
+                <h3 class="text-center">Welcome!</h3><br>
                 @php  $name = Auth::user()->firstname @endphp
                 @if ($name !== 'unsigned')
                     <h5>Hi!, {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</h5> 
@@ -74,4 +71,5 @@
         </div>
     </div>
 </div>
+@endif
 @endsection

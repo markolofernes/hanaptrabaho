@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-4 jobtableoverflow-y">
                     @foreach ($jobposts as $jobpost)
-                        <div class="card p-3 mx-1 my-5 shadow-lg">
+                        <div id="button" class="card cursorpointer p-3 mx-1 my-5 shadow-lg" onclick="showjobpost()">
                         <h5>{{ $jobpost->jobtitle }}</h5>
                         <h6><i>{{ $jobpost->user->companyname }}</i></h6><hr class="hrsmall">
                             <p>{{ $jobpost->joblocation }}</p>
@@ -93,9 +93,10 @@
 
                 </div>
 
-                <div class="col-8">
+                <div id="jobpost" class="col-8">
+                    <div>
                     @foreach ($jobposts as $jobpost)
-                        @if ($jobpost->id == 2)
+                        @if ($jobpost->id == 1)
                             <div id="jobDescPanel" class="jobpanel shadow-lg">
                                 <img class="employerlogo" src="https://logodownload.org/wp-content/uploads/2021/08/microsoft-teams-logo-2.png" alt="">
                                 <h4>{{ $jobpost->jobtitle }}</h4>
@@ -118,11 +119,21 @@
                             </div>                    
                         @endif
                      @endforeach
+                    </div>
                 </div>
             </div>
         </div>
     <div class="col-1"></div>
 </div>
+<script>
+var button = document.getElementById("button");
+var text = document.getElementById("jobpost");
+
+button.addEventListener("click", function() {
+  text.innerHTML = "<button>hi</button>";
+});
+
+</script>
 @endsection
                     {{-- <div class="card p-3 mx-1 my-5 shadow-lg">
                         <h5>Full Stack Web Developer</h5>

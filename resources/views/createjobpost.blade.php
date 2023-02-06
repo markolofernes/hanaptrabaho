@@ -7,6 +7,12 @@
                     <div class="card-body">
                         <div class="postjobcard">
                             <h1>Post a Job</h1>
+                            @if ( Auth::user() == null )
+                               @php
+                                header('Location:/');
+                                exit;
+                               @endphp
+                            @else
                             <form enctype="multipart/form-data" action="/postjob" method="POST">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -35,6 +41,7 @@
 
                                 <button type="submit" class="form-control btn btn-warning mt-3">Post</button>
                             </form>
+                            @endif
                         </div>
                     </div>
                 </div>
