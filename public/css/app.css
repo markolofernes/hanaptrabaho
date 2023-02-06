@@ -141,4 +141,15 @@ footer{
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(78, 78, 78, 0.753);
 }
+
 /* Welcome.blade.php -----------------------------------------*/
+
+@media(max-width: 800px) {
+    .hideOn800px {
+        display: none;
+    }
+}
+
+.cursorpointer {
+    cursor: pointer;
+}

@@ -1,5 +1,5 @@
-{{-- <h5 class="mb-3"> Hi! {{ Auth::user()->firstname }}, <br>{{ Auth::user()->companyname }}</h5>
-<a href="/createjobpost" class="btn btn-warning">Post a job</a>
+<h5 class="mb-3"> Hi! {{ Auth::user()->firstname }}, <br>{{ Auth::user()->companyname }}</h5>
+<a href="/createjobpost" class="px-3 btn btn-warning">Post a job</a><hr>
     <div class="col-4 jobtableoverflow-y">
         @foreach (Auth::user()->jobposts as $jobpost)
             <div class="card p-3 mx-1 my-5 shadow-lg">
@@ -12,4 +12,4 @@
                 <hr class="hrsmall"><a href="#">Job Description-></a> 
             </div>
         @endforeach
-    </div> --}}
+    </div>
