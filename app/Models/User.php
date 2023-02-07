@@ -53,4 +53,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(JobPost::class);
     }
+
+    public function resumes()
+    {
+        return $this->hasMany(Resume::class);
+    }
 }
