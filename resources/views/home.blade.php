@@ -19,6 +19,7 @@
                     <h5>Hi!, {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</h5> 
                 @endif
                 <h6>{{ Auth::user()->email }}</h6>
+                <a href="#">👤Edit Profile</a>
             </div>
         </div>
     </div>
