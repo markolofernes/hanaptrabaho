@@ -1,11 +1,12 @@
-@extends('layouts.app')
-@section('jobcontent')
-<div class="containter">
-    <div class="row">
-        <div class="col-2">
+{{-- @extends('layouts.app')
+@section('jobcontent') --}}
+{{-- <div class="containter">
+    <div class="row"> --}}
+        {{-- <div class="col-2">
             <a a href="/" class="px-2 rounded btn btn-warning">⬅Back</a>
-        </div>
-        <div class="col-8">
+        </div> --}}
+        <x-header />
+        <div style="height:100vh" class="col-12">
             <div class="card">
                 @foreach ($jobposts as $jobpost)
                         <div id="jobDescPanel" class="jobpanel shadow-lg">
@@ -31,7 +32,7 @@
                 @endforeach
             </div>
         </div>
-        <div class="col-2"></div>
+        {{-- <div class="col-2"></div>
     </div>
-</div>
-@endsection
+</div> --}}
+{{-- @endsection --}}
