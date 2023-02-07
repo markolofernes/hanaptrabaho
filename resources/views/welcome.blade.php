@@ -96,9 +96,3 @@
     <div class="col-1"></div>
 </div>
 @endsection
-                    {{-- <div class="card p-3 mx-1 my-5 shadow-lg">
-                        <h5>Full Stack Web Developer</h5>
-                        <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
-                        <p class="small">Work from Home</p><hr class="hrsmall">
-                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                    </div> --}}

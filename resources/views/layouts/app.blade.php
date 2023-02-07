@@ -19,8 +19,9 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     {{-- <link rel="stylesheet" href="/css/app.css"> --}}
+
 </head>
-<body class="allBG" data-bs-theme="dark">
+<body id="darkSwitch" class="allBG" data-bs-theme="darkSwitch">
     <div id="app">
        <x-Nav />
         <main class="py-4">
