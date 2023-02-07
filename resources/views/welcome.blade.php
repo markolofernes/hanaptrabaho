@@ -85,22 +85,42 @@
     <div class="col-1"></div>
         <div class="col-10 card p-3">
             <h3 class="text-center pt-2">Job feeds</h3>
-            <div class="row jobtableoverflow-y">
-                @foreach ($jobposts as $jobpost)
-                    <div class="col-4">
-                        <div id="id{{ $jobpost->id }}" class="card p-3 mx-1 my-5 shadow-lg">
+            <div class="row">
+                <div class="col-4 jobtableoverflow-y">
+                    @foreach ($jobposts as $jobpost)
+                        <div id="{{ $jobpost->id }}" class="card cursorpointer p-3 mx-1 my-5 shadow-lg" onclick="myFunction('/jobposts/{{ $jobpost->id }}')">
                         <h5>{{ $jobpost->jobtitle }}</h5>
                         <h6><i>{{ $jobpost->user->companyname }}</i></h6><hr class="hrsmall">
                             <p>{{ $jobpost->joblocation }}</p>
                             <p class="small">{{ $jobpost->jobtype }}</p><hr class="hrsmall">
                             <p class="small"> {{ $jobpost->salary }}</p>
                             <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                            <hr class="hrsmall"><a class="text-center" href="/jobposts/{{ $jobpost->id }}">View Job Description</a> 
+                            {{-- <hr class="hrsmall"><a class="text-center" href="/jobposts/{{ $jobpost->id }}">View Job Description</a>  --}}
                         </div>
+                    @endforeach
+
+                </div>
+
+                <div id="jobpost" class="col-8">
+                    <div>
+                    <iframe class="jobpanel shadow-lg" style="width:100%;height:100vh;" id="myFrame" src="/jobposts/2"></iframe>
                     </div>
-                @endforeach
+                </div>
             </div>
         </div>
     <div class="col-1"></div>
 </div>
+
+
+<script>
+function myFunction(value) {
+  document.getElementById("myFrame").src = value;
+  }
+</script>
 @endsection
+                    {{-- <div class="card p-3 mx-1 my-5 shadow-lg">
+                        <h5>Full Stack Web Developer</h5>
+                        <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
+                        <p class="small">Work from Home</p><hr class="hrsmall">
+                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
+                    </div> --}}

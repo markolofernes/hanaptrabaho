@@ -104,7 +104,7 @@ footer{
 }
 .tableoverflow-y {
     position: relative;
-    height: calc(100vh - 370px);
+    height: calc(100vh - 343px);
     bottom: 10px;
     overflow-y: scroll;
 }
@@ -116,7 +116,7 @@ footer{
 
 .jobtableoverflow-y {
     position: relative;
-    height: calc(100vh);
+    height:100vh;
     bottom: 10px;
     overflow-y: scroll;
 }
