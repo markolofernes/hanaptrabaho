@@ -5,7 +5,7 @@
         <div class="dsplyswitch">
             <center>
                 <img class="img-fluid mainImgMxSz object-fit-contain border rounded shadow-lg mb-5 bg-body-tertiary"
-                    src="mainimg.webp" alt="pinyotrabaho">
+                    src="\img\mainimg.webp" alt="pinyotrabaho">
             </center>
         </div>
         <div class="">
@@ -77,67 +77,22 @@
     <div class="col-1"></div>
         <div class="col-10 card p-3">
             <h3 class="text-center pt-2">Job feeds</h3>
-            <div class="row">
-                <div class="col-4 jobtableoverflow-y">
-                    @foreach ($jobposts as $jobpost)
-                        <div id="button" class="card cursorpointer p-3 mx-1 my-5 shadow-lg" onclick="showjobpost()">
+            <div class="row jobtableoverflow-y">
+                @foreach ($jobposts as $jobpost)
+                    <div class="col-4">
+                        <div id="id{{ $jobpost->id }}" class="card p-3 mx-1 my-5 shadow-lg">
                         <h5>{{ $jobpost->jobtitle }}</h5>
                         <h6><i>{{ $jobpost->user->companyname }}</i></h6><hr class="hrsmall">
                             <p>{{ $jobpost->joblocation }}</p>
                             <p class="small">{{ $jobpost->jobtype }}</p><hr class="hrsmall">
                             <p class="small"> {{ $jobpost->salary }}</p>
                             <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                            <hr class="hrsmall"><a href="#">Job Description-></a> 
+                            <hr class="hrsmall"><a class="text-center" href="/jobposts/{{ $jobpost->id }}">View Job Description</a> 
                         </div>
-                    @endforeach
-
-                </div>
-
-                <div id="jobpost" class="col-8">
-                    <div>
-                    @foreach ($jobposts as $jobpost)
-                        @if ($jobpost->id == 1)
-                            <div id="jobDescPanel" class="jobpanel shadow-lg">
-                                <img class="employerlogo" src="https://logodownload.org/wp-content/uploads/2021/08/microsoft-teams-logo-2.png" alt="">
-                                <h4>{{ $jobpost->jobtitle }}</h4>
-                                <h6>{{ $jobpost->user->companyname }}</h6> 
-                                <p>{{ $jobpost->joblocation }}</p>
-                                <button class="btn btn-warning mx-2">Apply Now</button><button class="btn btn-warning mx-2">🖤 Save</button>
-                                <hr>
-                                <div class="jobpaneldesc tableoverflow-y">
-                                    <h5> Job details</h5>
-                                    <h6>💼 {{ $jobpost->jobtype }}</h6>
-                                    <h6>💵 {{ $jobpost->salary }}</h6>
-                                    <hr>
-                                    <h5>Qualifications</h5>
-                                    <p>WordPress: 3 years (Required)</p> 
-                                    <hr>
-                                    {!! $jobpost->jobdescription !!}
-                                    <i>Posted: {{ $jobpost->created_at->diffforhumans() }}</i>
-                                    </small>
-                                </div>
-                            </div>                    
-                        @endif
-                     @endforeach
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     <div class="col-1"></div>
 </div>
-<script>
-var button = document.getElementById("button");
-var text = document.getElementById("jobpost");
-
-button.addEventListener("click", function() {
-  text.innerHTML = "<button>hi</button>";
-});
-
-</script>
 @endsection
-                    {{-- <div class="card p-3 mx-1 my-5 shadow-lg">
-                        <h5>Full Stack Web Developer</h5>
-                        <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
-                        <p class="small">Work from Home</p><hr class="hrsmall">
-                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                    </div> --}}

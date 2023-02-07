@@ -23,7 +23,6 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
-
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'employerdashboard'])->name('home');
@@ -38,6 +37,19 @@ Route::post('/createaccount', [UserController::class, 'update'])->name('createac
 Route::any('/createjobpost', function () {
     return view('createjobpost');
 })->name('createjobpost');
+
+// Route::any('/jobposts/{id}', [HomeController::class, 'viewjobpost'])->name('jobposts');
+Route::get('/jobposts/{id}', function ($id) {
+    $jobpost = App\Models\JobPost::find($id);
+    if ($jobpost !== null) {
+        return view('jobposts')->with('jobposts', [$jobpost]);
+    } else {
+        return view('home');
+    }
+    // dd($jobpost);
+    // return response()->json($jobpost);
+})->name('/');
+
 
 // Route::get('/employer', function () {
 //     return view('employer');

@@ -25,26 +25,28 @@ class HomeController extends Controller
      */
     public function employerdashboard()
     {
-        // $user = Account::find(1)->user;
-        // return view('home', compact('user'));
-        // return view('home');
         return view('home')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(6));
-
         // return view('welcome')->with('jobposts', JobPost::get());
-
-
     }
 
-    public function empdashboard()
+    // public function empdashboard()
+    // {
+    //     // $user = Account::find(1)->user;
+    //     // return view('home', compact('user'));
+    //     // return view('home');
+    //     return view('home')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(6));
+
+    //     // return view('welcome')->with('jobposts', JobPost::get());
+
+
+    // }
+    public function viewjobpost($id)
     {
-        // $user = Account::find(1)->user;
-        // return view('home', compact('user'));
-        // return view('home');
-        return view('home')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(6));
 
-        // return view('welcome')->with('jobposts', JobPost::get());
+        $account = JobPost::findOrFail($id);
 
 
+        return view('jobposts')->with('jobposts', JobPost::find($id));
     }
 
     public function index()
@@ -52,7 +54,7 @@ class HomeController extends Controller
         // $user = Account::find(1)->user;
         // return view('home', compact('user'));
         // return view('home');
-        return view('welcome')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(6));
+        return view('welcome')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(12));
     }
 
     public function account($id)

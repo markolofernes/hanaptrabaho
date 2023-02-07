@@ -5,13 +5,12 @@ body {
 }
 
 .allBG {
-    background-image: url("bg-image.webp");
+    background-image: url("/img/bgimage.webp");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position-x: center;
 }
-
 .inputSearchBars {
     min-width: 330px;
 }

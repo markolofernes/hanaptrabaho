@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <div style="position:abosolute;left: 10px;top:5px;margin:0;z-index:3">
-                <img src="logo.png" alt="hanaptrabahologo" width="200px" height="auto">
+                <img src="\img\logo.png" alt="hanaptrabahologo" width="200px" height="auto">
                 {{-- {{ config('app.name') }} --}}
             </div>
         </a>
@@ -62,7 +62,28 @@
                     </div>
                 </li>
                 @endguest
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                </div>
             </ul>
         </div>
     </div>
 </nav>
+
+<script>
+    const switchBtns = document.querySelector('#darkSwitch');
+
+    switchBtns.addEventListener('change', (e) => {
+    document.body.classList.toggle('dark', e.target.checked);
+
+    const div = document.querySelector('div');
+    const theme = div.getAttribute('data-bs-theme');
+
+if (theme === 'dark') {
+    div.setAttribute('data-bs-theme', 'light');
+} else {
+    div.setAttribute('data-bs-theme', 'dark');
+}
+});
+
+</script>
