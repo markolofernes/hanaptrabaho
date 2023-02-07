@@ -27,15 +27,26 @@ Route::get('/', [HomeController::class, 'index'])->name('welcome');
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'employerdashboard'])->name('home');
+
+Route::get('/blank', function () {
+    return view('blank');
+})->name('blank');
+
 // Route::get('/create', function () {
 //     return view('seek');
 // })->name('seek');
 
 Route::post('/postjob', [JobPostController::class, 'create'])->name('postjob');
 
-Route::post('/createresume', [ResumeController::class, 'create'])->name('jobseeker');
+Route::post('/postresume', [ResumeController::class, 'create'])->name('postresume');
 
 Route::post('/createaccount', [UserController::class, 'update'])->name('createaccount');
+
+Route::get('/deletejob/{id}', [JobPostController::class, 'delete'])->name('deletejob');
+
+Route::any('/createresume', function () {
+    return view('createresume');
+})->name('createresume');
 
 Route::any('/createjobpost', function () {
     return view('createjobpost');
