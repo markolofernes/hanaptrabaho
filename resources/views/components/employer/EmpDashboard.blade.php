@@ -11,12 +11,15 @@
                     <p class="small">{{ $jobpost->jobtype }}</p><hr class="hrsmall">
                     <p class="small"> {{ $jobpost->salary }}</p>
                     <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
+                    <p class="small">Posted {{ $jobpost->created_at->diffForhumans() }}</p>
                 </div>
             @endforeach
         </div>
         <div id="jobpost" class="col-8">
             <div>
-            <iframe class="jobpanel shadow-lg" style="width:100%;height:100vh;" id="myFrame" src=""></iframe>
+                @if (isset($jobpost))
+                    <iframe class="jobpanel shadow-lg" style="width:100%;height:100vh;" id="myFrame" src='/jobposts/{{ $jobpost->id }}'></iframe>        
+                @endif
             </div>
         </div>
     </div>

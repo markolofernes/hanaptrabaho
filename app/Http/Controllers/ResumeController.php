@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Resume;
+use Auth;
 
 class ResumeController extends Controller
 {

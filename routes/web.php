@@ -26,6 +26,11 @@ Route::get('/', [HomeController::class, 'index'])->name('welcome');
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'employerdashboard'])->name('home');
+
+Route::get('/blank', function () {
+    return view('blank');
+})->name('blank');
+
 // Route::get('/create', function () {
 //     return view('seek');
 // })->name('seek');
