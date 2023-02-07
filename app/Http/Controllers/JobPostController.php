@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JobPost;
 use Illuminate\Http\Request;
+use Auth;
 
 class JobPostController extends Controller
 {
@@ -91,5 +92,21 @@ class JobPostController extends Controller
     public function destroy(JobPost $jobPost)
     {
         //
+    }
+
+    public function delete($id)
+    {
+        $jobpost = JobPost::find($id);
+
+        // if ($twat->image_path != NULL) {
+        //     Storage::delete('/public/images/' . $twat->image_path);
+        // }
+
+        if (Auth::user()->id == $jobpost->user->id) {
+            $jobpost->delete();
+            return redirect()->route('/')->with('success', "Job deleted!");
+        } else {
+            return redirect()->route('home');
+        }
     }
 }

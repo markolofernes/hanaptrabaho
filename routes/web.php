@@ -34,6 +34,8 @@ Route::post('/postjob', [JobPostController::class, 'create'])->name('postjob');
 
 Route::post('/createaccount', [UserController::class, 'update'])->name('createaccount');
 
+Route::get('/deletejob/{id}', [JobPostController::class, 'delete'])->name('deletejob');
+
 Route::any('/createjobpost', function () {
     return view('createjobpost');
 })->name('createjobpost');
