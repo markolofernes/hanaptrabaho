@@ -3,6 +3,7 @@
 <hr class="small">
 <div class="text-center">
     <h5>Resume</h5>
+    <p>test</p>
     <small><a href="#">📄Create (PDF)</a> | <a href="#">🖨 Print (PDF) </a> | <a href="#">☁Upload </a><a href="#">🔽 Download (PDF) </a> </small>
     <hr class="small">
 </div>
