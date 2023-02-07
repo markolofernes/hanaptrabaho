@@ -20,8 +20,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     {{-- <link rel="stylesheet" href="/css/app.css"> --}}
 
-</head>
-<body id="darkSwitch" class="allBG" data-bs-theme="darkSwitch">
+</head> 
+ {{-- id="darkSwitch" --}}
+<body class="allBG" data-bs-theme="dark">
     <div id="app">
        <x-Nav />
         <main class="py-4">

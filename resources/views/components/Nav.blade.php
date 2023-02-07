@@ -62,15 +62,15 @@
                     </div>
                 </li>
                 @endguest
-                <div class="form-check form-switch">
+                {{-- <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                </div>
+                </div> --}}
             </ul>
         </div>
     </div>
 </nav>
 
-<script>
+{{-- <script>
     const switchBtns = document.querySelector('#darkSwitch');
 
     switchBtns.addEventListener('change', (e) => {
@@ -86,4 +86,4 @@ if (theme === 'dark') {
 }
 });
 
-</script>
+</script> --}}

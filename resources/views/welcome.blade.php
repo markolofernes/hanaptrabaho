@@ -67,7 +67,15 @@
                 <button class="btn btn-primary form-control">Search Jobs</button>
             </form><br>
             <center>
-                <a href="#">Upload your resume and post it!</a><br><br>
+            @if ( Auth::user() !== null )
+                @if (Auth::user()->accounttype == 'seeker')
+                    <a href="/login">Upload your resume and post it!</a><br><br>
+                @elseif (Auth::user()->accounttype == 'employer')
+                    <a href="/login">Create a Job and Post it!!</a><br><br>
+                @else   
+                    <a href="/home">Click here to finish setup your account!</a><br><br>
+                @endif
+            @endif
             </center>
         </div>
     </div>
