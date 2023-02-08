@@ -104,7 +104,7 @@ footer{
 }
 .tableoverflow-y {
     position: relative;
-    height: calc(100vh - 343px);
+    height: calc(100vh - 270px);
     bottom: 10px;
     overflow-y: scroll;
 }
@@ -141,6 +141,36 @@ footer{
     background: rgba(78, 78, 78, 0.753);
 }
 
+/* littlejobmenu */
+.jobminimenu {
+    appearance: button;
+    text-decoration: none;
+    float: right;
+    padding: 0 5px 0 0;
+    border-radius: 5px;
+    color: gray;
+}
+.dropdown-item {
+    padding: 2px;
+    font-weight: 10;
+    border: 0;
+    border-radius: 2px;
+}
+.dropdown-item:focus,
+.dropdown-item:hover {
+    color: var(--bs-dropdown-link-hover-color);
+    background-color: var(--bs-dropdown-link-hover-bg)
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: rgba(255, 166, 0, 0.315);
+}
+
+.dropdown-menu {
+    --bs-dropdown-min-width: 4rem;
+}
+/* littlejobmenu */
 /* Welcome.blade.php -----------------------------------------*/
 
 @media(max-width: 800px) {
@@ -151,4 +181,12 @@ footer{
 
 .cursorpointer {
     cursor: pointer;
+}
+.xframe{
+    width: 100%;
+    height: 100vh;
+}
+.manualresize {
+    resize: both;
+    overflow: auto;
 }

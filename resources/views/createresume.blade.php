@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-1"></div>
-                <div class="col-10">
+                <div class="manualresize col-10">
                     <div class="card-body">
                         <div class="postjobcard">
                             @if ( Auth::user() == null )
@@ -54,10 +54,8 @@
                                 </textarea>
                                 <label for="skills" class="sr-only mt-3">Skills/Expertise</label>
                                 <textarea class="form-control" id="skills" name="skills" rows="3" required></textarea>
-
                                 <label for="language" class="sr-only mt-3">Language</label>
                                 <textarea class="form-control" id="language" name="language" rows="3" required></textarea>
-
                                 <button class="btn btn-lg btn-primary btn-block mt-4 form-control" type="submit">Confirm</button>
                             </form>
                             @endif

@@ -104,7 +104,7 @@ class JobPostController extends Controller
 
         if (Auth::user()->id == $jobpost->user->id) {
             $jobpost->delete();
-            return redirect()->route('blank')->with('success', "Job deleted!");
+            return redirect()->route('home')->with('success', "Job deleted!");
         } else {
             return redirect()->route('home');
         }

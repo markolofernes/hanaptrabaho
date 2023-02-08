@@ -9,6 +9,6 @@
                         alt="hanaptrabahologo" width="150px" height="auto"></a></span>
         </footer>
     </div>
+    @livewireScripts
 </body>
-
 </html>
