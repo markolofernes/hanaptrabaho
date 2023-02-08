@@ -11,7 +11,7 @@
         <div class="">
             <form action="">
                 @csrf
-                <input class="inputSearchBars form-select-lg form-select mb-3" list="JobLists" id="exampleDataList"
+                <input class="inputSearchBars form-select form-select-lg mb-3 text-black" list="JobLists" id="exampleDataList"
                     placeholder="Search for jobs...">
                 <datalist id="JobLists">
                     <option value="Urgent Hiring">
@@ -25,7 +25,7 @@
                     <option value="Job Hiring">
                 </datalist>
 
-                <input class="inputSearchBars form-select-lg form-select mb-3" list="Places" id="exampleDataList"
+                <input class="inputSearchBars form-select-lg form-select mb-3 text-black" list="Places" id="exampleDataList"
                     placeholder="Where...">
                 <datalist id="Places">
                     <option value="Manila">

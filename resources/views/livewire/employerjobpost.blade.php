@@ -6,17 +6,18 @@
                     <button class="btn btn-warning mx-2">Apply Now</button><button class="btn btn-warning mx-2">🖤 Save</button>
                 @elseif (Auth::user()->accounttype == 'employer')
                     <div class="dropdown">
-                    <a class="jobminimenu" role="button" data-bs-toggle="dropdown" aria-expanded="false"> . . . </a>
+                    <a class="jobminimenu" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ••• </a>
                         <ul class="dropdown-menu">
                             @if($jobpost->user_id == Auth::user()->id)  
-                                <li><a class="dropdown-item" href="#">📝Edit</a></li>
-                                <li><a class="dropdown-item" href="{{ route('deletejob', $jobpost->id) }}">❌Delete</a></li>
+                                <li><a class="dropdown-item" role="button">📝Edit</a></li>
+                                <li><a class="dropdown-item" role="button" wire:click="deleteId({{ $jobpost->id }})" onclick="cleariframe()">❌Delete</a></li>
                             @endif   
+                            {{-- href="{{ route('deletejob', $jobpost->id) }}" --}}
                         </ul>
                     </div>
                 @endif
             @endif   
-            <div  id="{{ $jobpost->id }}" class="cursorpointer p-2" onclick="myFunction('/jobposts/{{ $jobpost->id }}')" wire:click="render">
+            <div  id="{{ $jobpost->id }}" class="cursorpointer p-2" onclick="myFunction('/jobposts/{{ $jobpost->id }}')">
             <h5>{{ $jobpost->jobtitle }}</h5>
             <h6><i>{{ $jobpost->user->companyname }}</i></h6><hr class="hrsmall">
                 <p>{{ $jobpost->joblocation }}</p>
@@ -40,3 +41,14 @@
         document.getElementById("myFrame").src = value;
     }
 </script>
+<script>
+    function cleariframe() {
+        document.getElementById("myFrame").src = 'blank';
+    }
+</script>
+  {{-- onmouseover="myOverFunction('/jobposts/{{ $jobpost->id }}')" --}}
+{{-- <script>
+    function myOverFunction(value) {
+         document.getElementById("myFrame").src = value;
+    }
+</script> --}}

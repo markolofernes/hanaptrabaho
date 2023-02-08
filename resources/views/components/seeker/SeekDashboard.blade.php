@@ -5,4 +5,5 @@
     <h5>Resume</h5>
     <small><a href="/createresume">📄Create (PDF)</a> | <a href="#">🖨 Print (PDF) </a> | <a href="#">☁Upload </a><a href="#">🔽 Download (PDF) </a> </small>
     <hr class="small">
+    <x-seeker.resume />
 </div>
