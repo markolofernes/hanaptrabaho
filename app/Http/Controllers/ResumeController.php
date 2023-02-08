@@ -21,6 +21,6 @@ class ResumeController extends Controller
         $resume->language = $request->language;
         $resume->save();
 
-        return redirect()->route('SeekDashboard');
+        return redirect()->route('home');
     }
 }

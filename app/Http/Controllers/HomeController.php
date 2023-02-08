@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\JobPost;
+use App\Models\Resume;
 use Illuminate\Http\Request;
 use App\Models\Account;
 
@@ -29,6 +30,13 @@ class HomeController extends Controller
         // return view('welcome')->with('jobposts', JobPost::get());
     }
 
+    public function seekerdashboard()
+    {
+        // return redirect()->route('home')->with('success', 'Successfully completed');
+        return view('home')->with('success', ['test', 'mic']);
+        // return view('home')->with('resumes', Resume::orderBy('created_at', 'desc')->paginate(6));
+        // return view('welcome')->with('jobposts', JobPost::get());
+    }
     // public function empdashboard()
     // {
     //     // $user = Account::find(1)->user;
