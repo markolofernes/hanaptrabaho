@@ -34,5 +34,16 @@
     <button class="btn btn-lg btn-primary btn-block mt-4 form-control"  type="submit">Confirm</button>
 </form>
 @else
-    <x-seeker.SeekDashboard />
+<h6>this will gonna be dashboard for jobseekers</h6><br>
+<hr class="small">
+<div class="text-center">
+    <h5>Resume</h5>
+    <small><a href="/createresume">📄Create (PDF)</a> | <a href="#">🖨 Print (PDF) </a> | <a href="#">☁Upload </a><a href="#">🔽 Download (PDF) </a> </small>
+    <hr class="small">
+        @foreach($resumes as $resume)
+            {{$resume->id}}
+        @endforeach    
+    
+    <x-seeker.resume />
+</div>
 @endif
