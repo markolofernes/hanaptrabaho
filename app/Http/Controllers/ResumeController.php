@@ -7,6 +7,10 @@ use App\Models\Resume;
 
 class ResumeController extends Controller
 {
+    public function index(){
+        return view('home')->with('resumes', Resume::latest()->get());
+    }
+
     public function create(Request $request)
     {
         // dd($request);
@@ -21,6 +25,6 @@ class ResumeController extends Controller
         $resume->language = $request->language;
         $resume->save();
 
-        return redirect()->route('home');
+        return redirect()->route('SeekDashboard');
     }
 }

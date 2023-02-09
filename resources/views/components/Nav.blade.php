@@ -19,9 +19,9 @@
                     @auth
                     <div class="text-light">
                         <a href="{{ url('/') }}"
-                        class="{{ Request::path() === '/' ? 'active' : 'text-black' }}">Home</a>
+                        class="{{ Request::path() === '/' ? 'active' : 'text-light' }}">Home</a>
                         <a href="{{ url('/home') }}"
-                        class="{{ Request::path() === 'home' ? 'active' : 'text-black' }}"> Dashboard</a>
+                        class="{{ Request::path() === 'home' ? 'active' : 'text-light' }}"> Dashboard</a>
                     </div>
                     @endauth
                     @endif
