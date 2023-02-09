@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <div class="row d-flex align-items-center m-5">
+    <div class="row d-flex align-items-center m-3">
         <div class="col-md-6 dsplyswitch">
             <center>
                 <img class="img-fluid mainImgMxSz object-fit-contain border border-4 border-light rounded shadow-lg mb-5 bg-body-tertiary"
@@ -11,8 +11,8 @@
         <div class="col-md-6">
             <form action="">
                 @csrf
-                <input class="inputSearchBars form-select form-select-lg mb-3 text-black" list="JobLists" id="exampleDataList"
-                    placeholder="Search for jobs...">
+                <input class="inputSearchBars form-select form-select-lg mb-3 text-black" list="JobLists"
+                    id="exampleDataList" placeholder="Search for jobs...">
                 <datalist id="JobLists">
                     <option value="Urgent Hiring">
                     <option value="Office Staff">
@@ -25,8 +25,8 @@
                     <option value="Job Hiring">
                 </datalist>
 
-                <input class="inputSearchBars form-select-lg form-select mb-3 text-black" list="Places" id="exampleDataList"
-                    placeholder="Where...">
+                <input class="inputSearchBars form-select-lg form-select mb-3 text-black" list="Places"
+                    id="exampleDataList" placeholder="Where...">
                 <datalist id="Places">
                     <option value="Manila">
                     <option value="Cavite">
@@ -67,15 +67,15 @@
                 <button class="btn btn-warning form-control">Search Jobs</button>
             </form><br>
             <center>
-            @if ( Auth::user() !== null )
+                @if ( Auth::user() !== null )
                 @if (Auth::user()->accounttype == 'seeker')
-                    <a href="/login">Upload your resume and post it!</a><br><br>
+                <a href="/login">Upload your resume and post it!</a><br><br>
                 @elseif (Auth::user()->accounttype == 'employer')
-                    <a href="/login">Create a Job and Post it!!</a><br><br>
-                @else   
-                    <a href="/home">Click here to finish setup your account!</a><br><br>
+                <a href="/login">Create a Job and Post it!!</a><br><br>
+                @else
+                <a href="/home">Click here to finish setup your account!</a><br><br>
                 @endif
-            @endif
+                @endif
             </center>
         </div>
     </div>
@@ -83,44 +83,48 @@
 
 <div class="d-flex justify-content-center">
     <div class="col-1"></div>
-        <div class="col-10 card px-3 pb-3">
-            <h3 class="text-center pt-2">Job feeds</h3>
-            <div class="row">
-                <div class="col-4 jobtableoverflow-y">
-                    @foreach ($jobposts as $jobpost)
-                        <div id="{{ $jobpost->id }}" class="card cursorpointer p-3 mx-1 my-5 shadow-lg" onclick="myFunction('/jobposts/{{ $jobpost->id }}')">
-                        <h5>{{ $jobpost->jobtitle }}</h5>
-                        <h6><i>{{ $jobpost->user->companyname }}</i></h6><hr class="hrsmall">
-                            <p>{{ $jobpost->joblocation }}</p>
-                            <p class="small">{{ $jobpost->jobtype }}</p><hr class="hrsmall">
-                            <p class="small"> {{ $jobpost->salary }}</p>
-                            <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                            <p class="small">Posted {{ $jobpost->created_at->diffForhumans() }}</p>
-                        </div>
-                    @endforeach
-
+    <div class="col-10 card px-3 pb-3">
+        <h3 class="text-center pt-2">Job feeds</h3>
+        <div class="row">
+            <div class="col-5 jobtableoverflow-y">
+                @foreach ($jobposts as $jobpost)
+                <div id="{{ $jobpost->id }}" class="card cursorpointer p-3 mx-1 my-5 shadow-lg"
+                    onclick="myFunction('/jobposts/{{ $jobpost->id }}')">
+                    <h5>{{ $jobpost->jobtitle }}</h5>
+                    <h6><i>{{ $jobpost->user->companyname }}</i></h6>
+                    <hr class="hrsmall">
+                    <p>{{ $jobpost->joblocation }}</p>
+                    <p class="small">{{ $jobpost->jobtype }}</p>
+                    <hr class="hrsmall">
+                    <p class="small"> {{ $jobpost->salary }}</p>
+                    <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
+                    <p class="small">Posted {{ $jobpost->created_at->diffForhumans() }}</p>
                 </div>
+                @endforeach
 
-                <div id="jobpost" class="col-8">
-                    <div>
-                        @if (isset($jobpost))
-                            <iframe scrolling="no" class="xframe shadow-lg" id="myFrame" src='/jobposts/{{ $jobpost->id }}'></iframe>        
-                        @endif
-                    </div>
+            </div>
+
+            <div id="jobpost" class="col-7">
+                <div>
+                    @if (isset($jobpost))
+                    <iframe scrolling="no" class="xframe shadow-lg" id="myFrame"
+                        src='/jobposts/{{ $jobpost->id }}'></iframe>
+                    @endif
                 </div>
             </div>
         </div>
+    </div>
     <div class="col-1"></div>
 </div>
 
 
 <script>
 function myFunction(value) {
-  document.getElementById("myFrame").src = value;
-  }
+    document.getElementById("myFrame").src = value;
+}
 </script>
 @endsection
-                    {{-- <div class="card p-3 mx-1 my-5 shadow-lg">
+{{-- <div class="card p-3 mx-1 my-5 shadow-lg">
                         <h5>Full Stack Web Developer</h5>
                         <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
                         <p class="small">Work from Home</p><hr class="hrsmall">
