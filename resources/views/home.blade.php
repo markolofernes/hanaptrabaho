@@ -72,19 +72,30 @@
                             </form>
                             @else
                                 {{-- <x-seeker.SeekDashboard /> --}}
-                            <h6>this will gonna be dashboard for jobseekers</h6><br>
+                            <h6>Jobseeker's Dasboard</h6><br>
                             <hr class="small">
                             <div class="text-center">
                                 <h5>Resume</h5>
-                                <small><a href="/createresume">📄Create (PDF)</a> | <a href="#">🖨 Print (PDF) </a> | <a href="#">☁Upload </a><a href="#">🔽 Download (PDF) </a> </small>
-                                <hr class="small">
-
-                                {{ Auth::user()->resumes->user_id }}
-                                @if (isset())
+                                <small style="text-decoration: none;color:orange;"  {{ $bool = true }}>
+                                            
+                                @forelse ($resumes as $resume)
                                     
-                                @else
-                                    
-                                @endif
+                                    @if (isset( Auth::user()->resumes->user_id ))
+                                        @if ($bool == true)
+                                         {{  $bool = false }}
+                                            <a href="/editresume">📝Edit (PDF)</a> | <a href="#">🖨 Print (PDF) </a> | <a href="#">🔽 Download (PDF) </a> 
+                                        @elseif($bool == true)
+                                         {{  $bool = false }}
+                                            <a href="/createresume">📄Create (PDF)</a> 
+                                        @endif 
+                                    @elseif($bool == true)
+                                         {{  $bool = false }}
+                                        <a href="/createresume">📄Create (PDF)</a> 
+                                    @endif
+                                @empty
+                                @endforelse
+                                </small>
+                                   <hr class="small">
                                 {{-- @if (isset($resumes->user()->user_id)) --}}
                                     {{-- @foreach($resumes as $resume)
                                        {{ Auth::user()->resumes->user_id }}
@@ -101,7 +112,7 @@
                         {{-- Employer ------------------------------------------------ --}} 
                      @elseif( Auth::user()->accounttype == 'admin')  
                         {{-- Employer ------------------------------------------------ --}}
-                        <h1>Welcom Admin</h1>
+                        <h1>Welcome Admin</h1>
                         {{-- <x-admin.admin /> --}}
                         <livewire:search-users />
                         {{-- Employer ------------------------------------------------ --}} 

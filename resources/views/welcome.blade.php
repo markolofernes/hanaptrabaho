@@ -87,7 +87,7 @@
             <h3 class="text-center pt-2">Job feeds</h3>
             <div class="row">
                 <div class="col-4 jobtableoverflow-y">
-                    @foreach ($jobposts as $jobpost)
+                    @forelse ($jobposts as $jobpost)
                         <div id="{{ $jobpost->id }}" class="card cursorpointer p-3 mx-1 my-5 shadow-lg" onclick="myFunction('/jobposts/{{ $jobpost->id }}')">
                         <h5>{{ $jobpost->jobtitle }}</h5>
                         <h6><i>{{ $jobpost->user->companyname }}</i></h6><hr class="hrsmall">
@@ -97,8 +97,9 @@
                             <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
                             <p class="small">Posted {{ $jobpost->created_at->diffForhumans() }}</p>
                         </div>
-                    @endforeach
-
+                    @empty
+                        <h5 class="text-center">No jobpost yet...</h5>
+                    @endforelse
                 </div>
 
                 <div id="jobpost" class="col-8">
