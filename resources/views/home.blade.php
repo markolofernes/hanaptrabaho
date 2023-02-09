@@ -78,9 +78,19 @@
                                 <h5>Resume</h5>
                                 <small><a href="/createresume">📄Create (PDF)</a> | <a href="#">🖨 Print (PDF) </a> | <a href="#">☁Upload </a><a href="#">🔽 Download (PDF) </a> </small>
                                 <hr class="small">
-                                    @foreach($resumes as $resume)
-                                        {{$resume->id}}
-                                    @endforeach    
+
+                                {{ Auth::user()->resumes->user_id }}
+                                @if (isset())
+                                    
+                                @else
+                                    
+                                @endif
+                                {{-- @if (isset($resumes->user()->user_id)) --}}
+                                    {{-- @foreach($resumes as $resume)
+                                       {{ Auth::user()->resumes->user_id }}
+                                    @endforeach       --}}
+                                {{-- @endif --}}
+
                                 <x-seeker.resume />
                             </div>
                             @endif
@@ -91,7 +101,9 @@
                         {{-- Employer ------------------------------------------------ --}} 
                      @elseif( Auth::user()->accounttype == 'admin')  
                         {{-- Employer ------------------------------------------------ --}}
-                        <x-admin.admin />
+                        <h1>Welcom Admin</h1>
+                        {{-- <x-admin.admin /> --}}
+                        <livewire:search-users />
                         {{-- Employer ------------------------------------------------ --}} 
                      @else
                         @php header('Location:/');exit; @endphp

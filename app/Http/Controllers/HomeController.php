@@ -35,6 +35,7 @@ class HomeController extends Controller
     {
         // dd(Resume::all());
         return view('home')->with('resumes', Resume::all());
+        // return view('/home')->with('resume', Resume::find($id));
     }
 
 
