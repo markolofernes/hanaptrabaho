@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="dsplyswitch">
+    <div class="row d-flex align-items-center m-5">
+        <div class="col-md-6 dsplyswitch">
             <center>
-                <img class="img-fluid mainImgMxSz object-fit-contain border rounded shadow-lg mb-5 bg-body-tertiary"
+                <img class="img-fluid mainImgMxSz object-fit-contain border border-4 border-light rounded shadow-lg mb-5 bg-body-tertiary"
                     src="\img\mainimg.webp" alt="pinyotrabaho">
             </center>
         </div>
-        <div class="">
+        <div class="col-md-6">
             <form action="">
                 @csrf
                 <input class="inputSearchBars form-select form-select-lg mb-3 text-black" list="JobLists" id="exampleDataList"
@@ -64,7 +64,7 @@
                         </select>
                     </div>
                 </div> --}}
-                <button class="btn btn-primary form-control">Search Jobs</button>
+                <button class="btn btn-warning form-control">Search Jobs</button>
             </form><br>
             <center>
             @if ( Auth::user() !== null )
