@@ -15,7 +15,7 @@ class ResumeController extends Controller
     {
         // dd($request);
         $resume = new Resume;
-        $resume->user_id = $request->user()->id;
+        $resume->user_id = $request->user_id;
         $resume->fullname = $request->fullname;
         $resume->phone = $request->phone;
         $resume->address = $request->address;
