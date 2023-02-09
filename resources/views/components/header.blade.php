@@ -17,9 +17,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
     {{-- <link rel="stylesheet" href="/css/app.css"> --}}
-
+    @livewireStyles
+    {{-- <livewire:Styles /> --}}
 </head> 
  {{-- id="darkSwitch" --}}
 <body class="allBG" data-bs-theme="dark">
+     {{-- data-bs-theme="dark" --}}

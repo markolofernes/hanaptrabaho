@@ -1,4 +1,5 @@
-<x-header />
+{{-- {{ $success->test }} --}}
+{{-- <x-header />
 <div style="height:100vh" class="col-12">
     <div class="card">
         @foreach ($jobposts as $jobpost)
@@ -29,4 +30,4 @@
         </div>                    
         @endforeach
     </div>
-</div>
+</div> --}}

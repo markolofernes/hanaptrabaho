@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\JobPost;
+use App\Models\Resume;
 use Illuminate\Http\Request;
 use App\Models\Account;
 
@@ -25,21 +26,18 @@ class HomeController extends Controller
      */
     public function employerdashboard()
     {
+        // dd(JobPost::all());
         return view('home')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(6));
         // return view('welcome')->with('jobposts', JobPost::get());
     }
 
-    // public function empdashboard()
-    // {
-    //     // $user = Account::find(1)->user;
-    //     // return view('home', compact('user'));
-    //     // return view('home');
-    //     return view('home')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(6));
-
-    //     // return view('welcome')->with('jobposts', JobPost::get());
+    public function seekerdashboard()
+    {
+        // dd(Resume::all());
+        return view('home')->with('resumes', Resume::all());
+    }
 
 
-    // }
     public function viewjobpost($id)
     {
 

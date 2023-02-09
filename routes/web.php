@@ -27,6 +27,7 @@ Route::get('/', [HomeController::class, 'index'])->name('welcome');
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'employerdashboard'])->name('home');
+Route::get('/home', [HomeController::class, 'seekerdashboard'])->name('home');
 
 Route::get('/blank', function () {
     return view('blank');
@@ -60,11 +61,17 @@ Route::get('/jobposts/{id}', function ($id) {
     } else {
         return view('home');
     }
-    // dd($jobpost);
-    // return response()->json($jobpost);
 })->name('/');
 
+Route::get('/clear', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('route:cache');
+    Artisan::call('view:clear');
+    Artisan::call('config:cache');
+    Artisan::call('optimize:clear');
+    return "all cleared ...";
 
+});
 // Route::get('/employer', function () {
 //     return view('employer');
 // })->name('employer');

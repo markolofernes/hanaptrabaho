@@ -17,13 +17,13 @@
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <label class="sr-only mt-1" for="jobtitle">Job Title</label>
-                                <input class="form-control mb-2" type="text" id="jobtitle" name="jobtitle" placeholder="Web Developer" required>
+                                <input class="text-black form-control mb-2" type="text" id="jobtitle" name="jobtitle" placeholder="Web Developer" required>
 
                                 <label class="sr-only mt-1" for="joblocation">Job Location</label>
-                                <input class="form-control mb-2" type="text" id="joblocation" name="joblocation" placeholder="Manila" required>
+                                <input class="text-black form-control mb-2" type="text" id="joblocation" name="joblocation" placeholder="Manila" required>
 
                                 <label class="sr-only mt-1" for="jobtype">Job Type</label>
-                                <input class="form-control mb-2" type="text" id="jobtype" name="jobtype" placeholder="Work from home" required>
+                                <input class="text-black form-control mb-2" type="text" id="jobtype" name="jobtype" placeholder="Work from home" required>
 
                                 <label class="sr-only mt-1" for="jobdescription">Job Description</label>
                                 <textarea class="ckeditor form-control" name="jobdescription" required>
@@ -37,9 +37,9 @@
                                     </ul>
                                 </textarea>
                                 <label class="sr-only mt-1" for="salary">Salary</label>
-                                <input class="form-control mb-2" type="text" id="salary" name="salary" placeholder="PHP 25,000 - P35,000 a month" required>
+                                <input class="text-black form-control mb-2" type="text" id="salary" name="salary" placeholder="PHP 25,000 - P35,000 a month" required>
 
-                                <button type="submit" class="form-control btn btn-warning mt-3">Post</button>
+                                <button type="submit" class="text-black form-control btn btn-warning mt-3">Post</button>
                             </form>
                             @endif
                         </div>

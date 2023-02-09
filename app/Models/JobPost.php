@@ -9,6 +9,8 @@ class JobPost extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $table = 'jobposts';
 
     protected $fillable = [

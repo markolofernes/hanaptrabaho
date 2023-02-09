@@ -11,7 +11,7 @@
         <div class="">
             <form action="">
                 @csrf
-                <input class="inputSearchBars form-select-lg form-select mb-3" list="JobLists" id="exampleDataList"
+                <input class="inputSearchBars form-select form-select-lg mb-3 text-black" list="JobLists" id="exampleDataList"
                     placeholder="Search for jobs...">
                 <datalist id="JobLists">
                     <option value="Urgent Hiring">
@@ -25,7 +25,7 @@
                     <option value="Job Hiring">
                 </datalist>
 
-                <input class="inputSearchBars form-select-lg form-select mb-3" list="Places" id="exampleDataList"
+                <input class="inputSearchBars form-select-lg form-select mb-3 text-black" list="Places" id="exampleDataList"
                     placeholder="Where...">
                 <datalist id="Places">
                     <option value="Manila">
@@ -83,7 +83,7 @@
 
 <div class="d-flex justify-content-center">
     <div class="col-1"></div>
-        <div class="col-10 card p-3">
+        <div class="col-10 card px-3 pb-3">
             <h3 class="text-center pt-2">Job feeds</h3>
             <div class="row">
                 <div class="col-4 jobtableoverflow-y">
@@ -104,7 +104,7 @@
                 <div id="jobpost" class="col-8">
                     <div>
                         @if (isset($jobpost))
-                            <iframe class="jobpanel shadow-lg" style="width:100%;height:100vh;" id="myFrame" src='/jobposts/{{ $jobpost->id }}'></iframe>        
+                            <iframe scrolling="no" class="xframe shadow-lg" id="myFrame" src='/jobposts/{{ $jobpost->id }}'></iframe>        
                         @endif
                     </div>
                 </div>

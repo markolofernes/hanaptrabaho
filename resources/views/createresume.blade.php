@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-1"></div>
-                <div class="col-10">
+                <div class="manualresize col-10">
                     <div class="card-body">
                         <div class="postjobcard">
                             @if ( Auth::user() == null )
@@ -16,22 +16,23 @@
                                 @csrf
                                 <h3 class="mb-3 text-center">Create Resume</h3><hr>
                                 <div class="row mb-4">
-                                    <input type="hidden" id="accounttype" name="accounttype" id="seeker" value="seeker">
+                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                    {{-- <input type="hidden" id="accounttype" name="accounttype" id="seeker" value="seeker"> --}}
                                     <div class="col-3">
                                         <label for="fullname" class="sr-only mt-3">Full Name</label>
-                                        <input type="text" id="fullname" name="fullname" class="form-control" required>
+                                        <input type="text" id="fullname" name="fullname" class="form-control text-black" required>
                                     </div>
                                     <div class="col-2">
                                         <label for="phone" class="sr-only mt-3">Phone No.</label>
-                                        <input type="text " maxlength="4" size="4" id="phone" name="phone" class="form-control" required>
+                                        <input type="text " maxlength="4" size="4" id="phone" name="phone" class="form-control text-black" required>
                                     </div>
                                     <div class="col-5">
                                         <label for="address" class="sr-only mt-3">Address</label>
-                                        <input type="text" id="address" name="address" class="form-control" required>
+                                        <input type="text" id="address" name="address" class="form-control text-black" required>
                                     </div>
                                     <div class="col-2">
                                         <label for="email" class="sr-only mt-3">Email</label>
-                                        <input type="text" id="email" name="email" class="form-control" required>
+                                        <input type="text" id="email" name="email" class="form-control text-black" required>
                                     </div>
                                 </div>
                                 <textarea class="ckeditor form-control" name="textarea" required>
@@ -53,11 +54,9 @@
                                     </ul>
                                 </textarea>
                                 <label for="skills" class="sr-only mt-3">Skills/Expertise</label>
-                                <textarea class="form-control" id="skills" name="skills" rows="3" required></textarea>
-
+                                <textarea class="form-control text-black" id="skills" name="skills" rows="3" required></textarea>
                                 <label for="language" class="sr-only mt-3">Language</label>
-                                <textarea class="form-control" id="language" name="language" rows="3" required></textarea>
-
+                                <textarea class="form-control text-black" id="language" name="language" rows="3" required></textarea>
                                 <button class="btn btn-lg btn-primary btn-block mt-4 form-control" type="submit">Confirm</button>
                             </form>
                             @endif
