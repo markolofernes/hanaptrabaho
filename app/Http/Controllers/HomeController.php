@@ -26,28 +26,18 @@ class HomeController extends Controller
      */
     public function employerdashboard()
     {
+        // dd(JobPost::all());
         return view('home')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(6));
         // return view('welcome')->with('jobposts', JobPost::get());
     }
 
     public function seekerdashboard()
     {
-        // return redirect()->route('home')->with('success', 'Successfully completed');
-        return view('home')->with('success', ['test', 'mic']);
-        // return view('home')->with('resumes', Resume::orderBy('created_at', 'desc')->paginate(6));
-        // return view('welcome')->with('jobposts', JobPost::get());
+        // dd(Resume::all());
+        return view('home')->with('resumes', Resume::all());
     }
-    // public function empdashboard()
-    // {
-    //     // $user = Account::find(1)->user;
-    //     // return view('home', compact('user'));
-    //     // return view('home');
-    //     return view('home')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(6));
-
-    //     // return view('welcome')->with('jobposts', JobPost::get());
 
 
-    // }
     public function viewjobpost($id)
     {
 
