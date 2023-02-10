@@ -1,5 +1,6 @@
 <?php
 
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -85,14 +86,14 @@ Route::get('/clear', function () {
     return "all cleared ...";
 
 });
-// Route::get('/employer', function () {
-//     return view('employer');
-// })->name('employer');
 
-// Route::get('/seek', function () {
-//     return view('seek');
-// })->name('seek');
+Route::get('/generate-pdf', function () {
+    $users = App\Models\User::all();
+    $data = [
+        'users' => $users,
+    ];
+    $pdf = Pdf::loadView('userlist', $data);
 
-// Route::get('/employer', function () {
-//     return view('employer');
-// })->name('employer');
+    return $pdf->stream('userlist.pdf');
+
+})->name('generate-pdf');
