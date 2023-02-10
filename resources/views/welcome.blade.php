@@ -64,7 +64,7 @@
                         </select>
                     </div>
                 </div> --}}
-                <button class="btn btn-primary form-control">Search Jobs</button>
+                <button class="btn btn-secondary form-control">Search Jobs</button>
             </form><br>
             <center {{ $noResume = true }}>
             @if ( Auth::user() !== null )

@@ -19,7 +19,7 @@
                     <h5>Hi!, {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</h5> 
                 @endif
                 <h6>{{ Auth::user()->email }}</h6>
-                <a href="#">👤Edit Profile</a>
+                <a href="{{ route('editprofile', Auth::user()->id) }}">👤Edit Profile</a>
             </div>
         </div>
     </div>
@@ -105,14 +105,15 @@
                                                 <a href="#">🔽 Download </a> 
                                             @endif 
                                         @elseif(!isset(Auth::user()->resumes->user_id))
-                                            <a href="{{ route('createresume', $resume->id) }}">📄Create (PDF)</a> 
+                                            @if ($noResume == false)
+                                                <a {{ $noResume = true }} href="{{ route('createresume', $resume->id) }}">📄Create (PDF)</a> 
+                                            @endif
                                         @endif
                                     @empty
                                         <a href="/createresume">Create your resume here!</a>
                                     @endforelse
                                 </small>
-                                   <hr class="small">
-                                <x-seeker.resume />
+                                <hr class="small">
                             </div>
                             @endif
                         {{-- Jobseeker ------------------------------------------------ --}}

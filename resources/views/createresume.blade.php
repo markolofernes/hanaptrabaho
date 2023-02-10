@@ -24,7 +24,7 @@
                                     </div>
                                     <div class="col-2">
                                         <label for="phone" class="sr-only mt-3">Phone No.</label>
-                                        <input type="text " maxlength="4" size="4" id="phone" name="phone" class="form-control text-black" required>
+                                        <input type="number " maxlength="12" size="12" id="phone" name="phone" class="form-control text-black" required>
                                     </div>
                                     <div class="col-5">
                                         <label for="address" class="sr-only mt-3">Address</label>
@@ -40,17 +40,16 @@
                                     <ul>
                                         <li></li>
                                     </ul>
-                                    <h3><strong>EDUCATION</strong></h3>
-                                    <ul>
-                                        <li></li>
-                                    </ul>
-                                    <h3><strong>EXPERIENCE</strong></h3>
-                                    <ul>
-                                        <li></li>
-                                    </ul>
-                                    <h3><strong>REFERENCE</strong></h3>
-                                    <ul>
-                                        <li></li>
+                                        <h3><strong>EDUCATION</strong></h3>
+                                        <ul>
+                                            <li></li>
+                                        </ul>
+                                        <h3><strong>EXPERIENCE</strong></h3>
+                                        <ul>
+                                            <li></li>
+                                        </ul>
+                                        <h3><strong>REFERENCE</strong></h3>
+                                        <ul>
                                     </ul>
                                 </textarea>
                                 <label for="skills" class="sr-only mt-3">Skills/Expertise</label>
