@@ -19,7 +19,7 @@
                     @auth
                     <div class="text-light">
                         <a href="{{ url('/') }}"
-                        class="{{ Request::path() === '/' ? 'active' : 'text-black' }}">Home</a>
+                        class="{{ Request::path() === '/' ? 'active' : 'text-black' }}">Job Posts</a>
                         <a href="{{ url('/home') }}"
                         class="{{ Request::path() === 'home' ? 'active' : 'text-black' }}"> Dashboard</a>
                     </div>
@@ -61,6 +61,7 @@
                         </form>
                     </div>
                 </li>
+                <button id="counter" class="clickbtn btn  btn-sm">💡</button>
                 @endguest
                 {{-- <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">

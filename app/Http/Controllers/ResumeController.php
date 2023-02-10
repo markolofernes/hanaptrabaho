@@ -29,10 +29,6 @@ class ResumeController extends Controller
     {
         $resume = Resume::find($id);
 
-        // if ($twat->image_path != NULL) {
-        //     Storage::delete('/public/images/' . $twat->image_path);
-        // }
-
         if (Auth::user()->id == $resume->user->id) {
             $resume->delete();
             return redirect()->route('home')->with('success', "Resume deleted!");
@@ -58,12 +54,12 @@ class ResumeController extends Controller
 
         $resume->save();
 
-        return redirect()->route('updateresume');
+        return redirect()->route('home');
     }
     public function edit($id)
     {
         $resume = Resume::find($id);
-        return view('createresume')->with('resume', $resume);
+        return view('actions.editresume')->with('resume', $resume);
     }
 
 

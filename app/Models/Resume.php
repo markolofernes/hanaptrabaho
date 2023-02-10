@@ -27,5 +27,10 @@ class Resume extends Model
     {
         return $this->belongsTo(User::class);
     }
-}
 
+    public function edit($id)
+    {
+        $student = Resume::find($id);
+        return view('actions.editresume')->with('resumes', $resume);
+    }
+}

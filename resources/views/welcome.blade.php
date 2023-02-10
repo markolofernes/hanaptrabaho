@@ -56,7 +56,7 @@
                             <option selected>Job Type</option>
                             <option value="Full-Time">Full Time</option>
                             <option value="Permanent">Permanent</option>
-                            <option value="New-Grad">New-Grad</option>
+                            <optditresumeion value="New-Grad">New-Grad</optditresumeion>
                             <option value="Contract">Contract</option>
                             <option value="Internship">Internship</option>
                             <option value="Part-Time">Part Time</option>
@@ -66,10 +66,21 @@
                 </div> --}}
                 <button class="btn btn-primary form-control">Search Jobs</button>
             </form><br>
-            <center>
+            <center {{ $noResume = true }}>
             @if ( Auth::user() !== null )
                 @if (Auth::user()->accounttype == 'seeker')
-                    <a href="/login">Upload your resume and post it!</a><br><br>
+                    @if (isset( Auth::user()->resumes->user_id ))
+                        @if ($noResume == true)
+                            <a href="/home">Updated your resume</a><br><br>
+                            {{  $noResume = false }}
+                        @elseif($noResume == true)
+                            <a href="/createresume">Create your resume here!</a><br><br>
+                            {{  $noResume = false }}
+                        @endif 
+                    @elseif($noResume == true)
+                            <a href="/createresume">Create your resume here!</a><br><br>
+                            {{ $noResume = false }}
+                    @endif
                 @elseif (Auth::user()->accounttype == 'employer')
                     <a href="/login">Create a Job and Post it!!</a><br><br>
                 @else   

@@ -45,6 +45,12 @@ Route::post('/createaccount', [UserController::class, 'update'])->name('createac
 
 Route::get('/deletejob/{id}', [JobPostController::class, 'delete'])->name('deletejob');
 
+Route::get('/actions.editresume/{id}', [ResumeController::class, 'edit'])->name('actions.editresume');
+
+Route::post('/actions.updateresume/{id}', [ResumeController::class, 'update'])->name('actions.updateresume');
+
+Route::get('/actions.deleteresume/{id}', [ResumeController::class, 'delete'])->name('actions.deleteresume');
+
 Route::any('/createresume', function () {
     return view('createresume');
 })->name('createresume');
