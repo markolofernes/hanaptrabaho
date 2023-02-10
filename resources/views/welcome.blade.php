@@ -94,7 +94,7 @@
 
 <div class="d-flex justify-content-center">
     <div class="col-1"></div>
-        <div class="col-10 card px-3 pb-3">
+        <div style="margin:0 auto; min-width:500px; max-width:1400px" class="col-10 card px-3 pb-3">
             <h3 class="text-center pt-2">Job feeds</h3>
             <div class="row">
                 <div class="col-4 jobtableoverflow-y">
@@ -124,17 +124,9 @@
         </div>
     <div class="col-1"></div>
 </div>
-
-
 <script>
 function myFunction(value) {
   document.getElementById("myFrame").src = value;
   }
 </script>
 @endsection
-                    {{-- <div class="card p-3 mx-1 my-5 shadow-lg">
-                        <h5>Full Stack Web Developer</h5>
-                        <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
-                        <p class="small">Work from Home</p><hr class="hrsmall">
-                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                    </div> --}}

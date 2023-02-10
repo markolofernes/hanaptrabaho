@@ -12,7 +12,7 @@
                                 exit;
                                @endphp
                             @else
-                            <form enctype="multipart/form-data" class="form-signup border shadow p-3" method="POST" action="/actions.update/{{ $resume->id }}">
+                            <form enctype="multipart/form-data" class="form-signup border shadow p-3" method="POST" action="/actions.updateresume/{{ $resume->id }}">
                                 @csrf
                                 <h3 class="mb-3 text-center">Create Resume</h3><hr>
                                 <div class="row mb-4">

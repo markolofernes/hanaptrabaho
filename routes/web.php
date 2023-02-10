@@ -37,7 +37,6 @@ Route::post('/createaccount', [UserController::class, 'update'])->name('createac
 
 Route::get('/editprofile/{id}', [UserController::class, 'edit'])->name('editprofile');
 
-
 // jobpost
 Route::post('/postjob', [JobPostController::class, 'create'])->name('postjob');
 
