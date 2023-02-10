@@ -2,10 +2,10 @@
 <x-nav />
 <div class="row py-5"><br>
     <div class="col-1"></div>
-    <div class="col-10 mt-5">
+    <div style="margin: 0 auto;max-width:900px;" class="col-10 mt-5">
        <form class="card form-signup border shadow p-3" method="POST" action="{{ route('createaccount')}}">
             @csrf
-            <a href="/home">📈Dashboard</a>
+            <a href="/home">◀Dashboard</a>
             <h2 class="text-center">Profile Edit</h2><hr>
             <input type="hidden" id="accounttype" name="accounttype" id="seeker" value="{{ $user->accounttype }}">
 

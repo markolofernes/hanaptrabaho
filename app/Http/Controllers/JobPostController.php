@@ -66,9 +66,10 @@ class JobPostController extends Controller
      * @param  \App\Models\JobPost  $jobPost
      * @return \Illuminate\Http\Response
      */
-    public function edit(JobPost $jobPost)
+    public function edit($id)
     {
-        //
+        $jobpost = JobPost::find($id);
+        return view('editjobentry')->with('jobpost', $jobpost);
     }
 
     /**
@@ -78,11 +79,22 @@ class JobPostController extends Controller
      * @param  \App\Models\JobPost  $jobPost
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JobPost $jobPost)
-    {
-        //
-    }
 
+    public function update(Request $request)
+    {
+        // dd($request);
+        $jobpost = JobPost::find($request->id);
+
+        $jobpost->user_id = $request->user_id;
+        $jobpost->jobtitle = $request->jobtitle;
+        $jobpost->joblocation = $request->joblocation;
+        $jobpost->jobtype = $request->jobtype;
+        $jobpost->jobdescription = $request->jobdescription;
+        $jobpost->salary = $request->salary;
+        $jobpost->save();
+
+        return redirect()->route('home');
+    }
     /**
      * Remove the specified resource from storage.
      *

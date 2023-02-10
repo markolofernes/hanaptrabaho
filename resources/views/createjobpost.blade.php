@@ -2,8 +2,8 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-2"></div>
-                <div class="col-8">
+            <div class="col-1"></div>
+                <div style="max-width:900px; margin:0 auto;" class="col-10">
                     <div class="card-body">
                         <div class="postjobcard">
                             <h1>Post a Job</h1>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 </div>
-            <div class="col-2"></div>
+            <div class="col-1"></div>
         </div>
     </div>
 </body>

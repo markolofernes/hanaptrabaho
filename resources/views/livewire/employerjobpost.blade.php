@@ -9,7 +9,7 @@
                     <a class="jobminimenu" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ••• </a>
                         <ul class="dropdown-menu">
                             @if($jobpost->user_id == Auth::user()->id)  
-                                <li><a class="dropdown-item" role="button">📝Edit</a></li>
+                                <li><a class="dropdown-item" role="button" href="{{ route('editjobentry', $jobpost->id ) }}">📝Edit</a></li>
                                 <li><a class="dropdown-item" role="button" wire:click="deleteId({{ $jobpost->id }})" onclick="cleariframe()">❌Delete</a></li>
                             @endif   
                             {{-- href="{{ route('deletejob', $jobpost->id) }}" --}}

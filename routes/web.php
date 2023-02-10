@@ -37,7 +37,15 @@ Route::post('/createaccount', [UserController::class, 'update'])->name('createac
 
 Route::get('/editprofile/{id}', [UserController::class, 'edit'])->name('editprofile');
 
+
+// jobpost
 Route::post('/postjob', [JobPostController::class, 'create'])->name('postjob');
+
+Route::post('/action.updatejob{id}', [JobPostController::class, 'update'])->name('action.updatejob');
+
+Route::get('/editjobentry{id}', [JobPostController::class, 'edit'])->name('editjobentry');
+
+Route::post('/actions.updatejobentry/{id}', [JobPostController::class, 'update'])->name('actions.updatejobentry');
 
 Route::get('/deletejob/{id}', [JobPostController::class, 'delete'])->name('deletejob');
 

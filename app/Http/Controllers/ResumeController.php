@@ -52,11 +52,11 @@ class ResumeController extends Controller
         $resume->skills = $request->skills;
         $resume->language = $request->language;
 
-
         $resume->save();
 
         return redirect()->route('home');
     }
+
     public function edit($id)
     {
         $resume = Resume::find($id);
