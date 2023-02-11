@@ -1,4 +1,4 @@
-@if( Auth::user()->firstname == 'unsigned')
+{{-- @if( Auth::user()->firstname == 'unsigned')
 
 <form class="form-signup border shadow p-3" method="POST" action="{{ route('createaccount')}}">
     @csrf
@@ -31,7 +31,7 @@
 
     <input type="hidden" id="companyname" name="companyname" class="form-control text-black"  value="unsigned" placeholder="companyname" required>
 
-    <button class="btn btn-lg btn-primary btn-block mt-4 form-control"  type="submit">Confirm</button>
+    <button class="btn btn-lg btn-secondary btn-block mt-4 form-control"  type="submit">Confirm</button>
 </form>
 @else
 <h6>this will gonna be dashboard for jobseekers</h6><br>
@@ -45,4 +45,4 @@
         @endforeach    
     <x-seeker.resume />
 </div>
-@endif
+@endif --}}

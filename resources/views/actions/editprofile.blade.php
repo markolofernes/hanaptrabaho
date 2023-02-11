@@ -44,7 +44,7 @@
                 
                 <input type="{{$typeEmployer}}" id="companyname" name="companyname" class="form-control text-black" value="{{ $user->companyname }}" required>
             </div>
-            <button class="btn btn-lg btn-primary btn-block mt-4 form-control"  type="submit">Confirm</button>
+            <button class="btn btn-lg btn-secondary btn-block mt-4 form-control"  type="submit">Confirm</button>
         </form>
     </div>
     <div class="col-1"></div>

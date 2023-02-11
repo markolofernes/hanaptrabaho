@@ -42,7 +42,7 @@
                                 <textarea class="form-control text-black" id="skills" name="skills" rows="3" required> {{ $resume->skills }} </textarea>
                                 <label for="language" class="sr-only mt-3">Language</label>
                                 <textarea class="form-control text-black" id="language" name="language" rows="3" required>{{ $resume->language }} </textarea>
-                                <button class="btn btn-lg btn-primary btn-block mt-4 form-control" type="submit">Confirm</button>
+                                <button class="btn btn-lg btn-secondary btn-block mt-4 form-control" type="submit">Confirm</button>
                             </form>
                             @endif
                         </div>

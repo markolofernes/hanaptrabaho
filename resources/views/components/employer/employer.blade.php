@@ -38,7 +38,7 @@
     <label for="address" class="sr-only mt-3">Company Address</label>
     <input type="text" id="address" name="address" class="text-black form-control" placeholder="Address" required>
 
-    <button class="btn btn-lg btn-primary btn-block mt-4 form-control"  type="submit">Confirm</button>
+    <button class="btn btn-lg btn-secondary btn-block mt-4 form-control"  type="submit">Confirm</button>
 </form>                  
 @else
     <x-employer.EmpDashboard />

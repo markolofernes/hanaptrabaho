@@ -7,6 +7,8 @@
     <title>Good Day!</title>
 </head>
 <body>
-    .
+    <center><br>
+        <h3 style="margin:0 auto;color:white;padding: 20px 0 0 0;">Job entry successfully deleted!</h3>
+    </center>
 </body>
 </html>

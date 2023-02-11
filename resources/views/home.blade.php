@@ -68,7 +68,7 @@
 
                                 <input type="hidden" id="companyname" name="companyname" class="form-control text-black"  value="unsigned" placeholder="companyname" required>
 
-                                <button class="btn btn-lg btn-primary btn-block mt-4 form-control"  type="submit">Confirm</button>
+                                <button class="btn btn-lg btn-secondary btn-block mt-4 form-control"  type="submit">Confirm</button>
                             </form>
                             @else
                                 {{-- <x-seeker.SeekDashboard /> --}}
@@ -100,7 +100,7 @@
                                                     </div>
                                                     </div>
                                                 | 
-                                                <a href="{{ route('generate-resume-pdf', $resume->id) }}">🖨 Print </a> 
+                                                <a href="{{ route('generate-resume-pdf', $resume->id) }}" target="_blank">🖨 Print </a> 
                                                 | 
                                                 <a href="{{ route('generate-resume-download-pdf', $resume->id) }}">🔽 Download </a> 
                                             @endif 
