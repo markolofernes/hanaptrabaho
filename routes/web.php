@@ -76,17 +76,7 @@ Route::any('/createresume', function () {
     return view('createresume');
 })->name('createresume');
 
-
-Route::get('/clear', function () {
-    Artisan::call('cache:clear');
-    Artisan::call('route:cache');
-    Artisan::call('view:clear');
-    Artisan::call('config:cache');
-    Artisan::call('optimize:clear');
-    return "all cleared ...";
-
-});
-
+// pdf creator
 Route::get('/generate-pdf', function () {
     $users = App\Models\User::all();
     $data = [
@@ -97,3 +87,15 @@ Route::get('/generate-pdf', function () {
     return $pdf->stream('userlist.pdf');
 
 })->name('generate-pdf');
+
+
+Route::get('/clear', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('route:cache');
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
+    Artisan::call('config:cache');
+    Artisan::call('optimize:clear');
+    return "all cleared ...";
+
+});

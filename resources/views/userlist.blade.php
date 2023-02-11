@@ -20,6 +20,7 @@
 <body>
     <div class="card">
     <h1>List of Users</h1>
+    <img src="https://hips.hearstapps.com/hmg-prod/images/inspirational-quote-hrm-queen-elizabeth-ii-1665765893.png?resize=480:*" alt="test">
     <table class="table table-bordered">
         <tr>
             <th>ID</th>
