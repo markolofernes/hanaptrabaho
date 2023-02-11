@@ -12,7 +12,7 @@
             <img class="img-fluid d-block w-100" src="\img\{{ Auth::user()->accounttype }}.webp">
         </div>
         <div class="col align-items-center"><br>
-            <div class="col-10 card shadow-lg m-5 p-3 py-5">
+            <div class="col-10 card border border-light shadow-lg m-5 p-3 py-5">
                 <h3 class="text-center">Welcome!</h3><br>
                 @php  $name = Auth::user()->firstname @endphp
                 @if ($name !== 'unsigned')
