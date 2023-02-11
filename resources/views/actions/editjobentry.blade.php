@@ -7,7 +7,7 @@
                     <div class="card-body">
                         <div class="postjobcard">
                             <h1>Update Job Entry</h1>
-                            <form enctype="multipart/form-data" action="{{ route('action.updatejob', $jobpost->id) }}" method="POST">
+                            <form enctype="multipart/form-data" action="{{ route('actions.updatejob', $jobpost->id) }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input type="hidden" name="id" value="{{ $jobpost->id }}">

@@ -69,7 +69,7 @@ class JobPostController extends Controller
     public function edit($id)
     {
         $jobpost = JobPost::find($id);
-        return view('editjobentry')->with('jobpost', $jobpost);
+        return view('actions.editjobentry')->with('jobpost', $jobpost);
     }
 
     /**

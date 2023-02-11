@@ -12,7 +12,7 @@
                                 exit;
                                @endphp
                             @else
-                            <form enctype="multipart/form-data" class="form-signup border shadow p-3" method="POST" action="/postresume">
+                            <form enctype="multipart/form-data" class="form-signup border shadow p-3" method="POST" action="/actions.postresume">
                                 @csrf
                                 <h3 class="mb-3 text-center">Create Resume</h3><hr>
                                 <div class="row mb-4">
@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                                 <textarea id="resumedesc" class="ckeditor form-control" name="textarea" value="{{ old('textarea') }}" required>
-
+                                 <h1> * put resume description here *</h1>
                                 </textarea>
                                 <label for="skills" class="sr-only mt-3">Skills/Expertise</label>
                                 <textarea class="form-control text-black" id="skills" name="skills" rows="3" value="{{ old('skills') }}" required></textarea>

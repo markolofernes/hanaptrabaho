@@ -36,22 +36,22 @@ Route::get('/blank', function () {
 
 Route::post('/createaccount', [UserController::class, 'update'])->name('createaccount');
 
-Route::get('/editprofile/{id}', [UserController::class, 'edit'])->name('editprofile');
+Route::get('/actions.editprofile/{id}', [UserController::class, 'edit'])->name('actions.editprofile');
 
 // jobpost
 Route::post('/postjob', [JobPostController::class, 'create'])->name('postjob');
 
-Route::post('/action.updatejob{id}', [JobPostController::class, 'update'])->name('action.updatejob');
+Route::post('/actions.updatejob{id}', [JobPostController::class, 'update'])->name('actions.updatejob');
 
-Route::get('/editjobentry{id}', [JobPostController::class, 'edit'])->name('editjobentry');
+Route::get('/actions.editjobentry{id}', [JobPostController::class, 'edit'])->name('actions.editjobentry');
 
 Route::post('/actions.updatejobentry/{id}', [JobPostController::class, 'update'])->name('actions.updatejobentry');
 
 Route::get('/deletejob/{id}', [JobPostController::class, 'delete'])->name('deletejob');
 
-Route::any('/createjobpost', function () {
-    return view('createjobpost');
-})->name('createjobpost');
+Route::any('/actions.createjobpost', function () {
+    return view('actions.createjobpost');
+})->name('actions.createjobpost');
 
 // Route::any('/jobposts/{id}', [HomeController::class, 'viewjobpost'])->name('jobposts');
 Route::get('/jobposts/{id}', function ($id) {
@@ -64,7 +64,7 @@ Route::get('/jobposts/{id}', function ($id) {
 })->name('/');
 
 
-Route::post('/postresume', [ResumeController::class, 'create'])->name('postresume');
+Route::post('/actions.postresume', [ResumeController::class, 'create'])->name('actions.postresume');
 
 Route::get('/actions.editresume/{id}', [ResumeController::class, 'edit'])->name('actions.editresume');
 
@@ -72,9 +72,9 @@ Route::post('/actions.updateresume/{id}', [ResumeController::class, 'update'])->
 
 Route::get('/actions.deleteresume/{id}', [ResumeController::class, 'delete'])->name('actions.deleteresume');
 
-Route::any('/createresume', function () {
-    return view('createresume');
-})->name('createresume');
+Route::any('/actions.createresume', function () {
+    return view('actions.createresume');
+})->name('actions.createresume');
 
 // pdf creator - userlists
 Route::get('/generate-users-report-pdf', function () {
@@ -113,6 +113,6 @@ Route::get('/clear', function () {
     Artisan::call('view:clear');
     Artisan::call('config:cache');
     Artisan::call('optimize:clear');
-    return "all cleared ...";
+    return 'Cleared! <br><a href="/"> back </a>';
 
 });

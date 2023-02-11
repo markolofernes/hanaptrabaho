@@ -19,7 +19,7 @@
                     <h5>Hi!, {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</h5> 
                 @endif
                 <h6>{{ Auth::user()->email }}</h6>
-                <a href="{{ route('editprofile', Auth::user()->id) }}">👤Edit Profile</a>
+                <a href="{{ route('actions.editprofile', Auth::user()->id) }}">👤Edit Profile</a>
             </div>
         </div>
     </div>
@@ -106,7 +106,7 @@
                                             @endif 
                                         @elseif(!isset(Auth::user()->resumes->user_id))
                                             @if ($noResume == false)
-                                                <a {{ $noResume = true }} href="{{ route('createresume', $resume->id) }}">📄Create (PDF)</a> 
+                                                <a {{ $noResume = true }} href="{{ route('actions.createresume', $resume->id) }}">📄Create (PDF)</a> 
                                             @endif
                                         @endif
                                     @empty

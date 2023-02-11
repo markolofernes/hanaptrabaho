@@ -36,22 +36,7 @@
                                     </div>
                                 </div>
                                 <textarea id="resumedesc" class="ckeditor form-control" name="textarea" required>{{ $resume->textarea }} 
-                                    <h3><strong>OBJECTIVES</strong></h3>
-                                    <ul>
-                                        <li></li>
-                                    </ul>
-                                    <h3><strong>EDUCATION</strong></h3>
-                                    <ul>
-                                        <li></li>
-                                    </ul>
-                                    <h3><strong>EXPERIENCE</strong></h3>
-                                    <ul>
-                                        <li></li>
-                                    </ul>
-                                    <h3><strong>REFERENCE</strong></h3>
-                                    <ul>
-                                        <li></li>
-                                    </ul>
+
                                 </textarea>
                                 <label for="skills" class="sr-only mt-3">Skills/Expertise</label>
                                 <textarea class="form-control text-black" id="skills" name="skills" rows="3" required> {{ $resume->skills }} </textarea>

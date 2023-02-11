@@ -27,7 +27,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('editprofile')->with('user', $user);
+        return view('actions.editprofile')->with('user', $user);
     }
 
 }
