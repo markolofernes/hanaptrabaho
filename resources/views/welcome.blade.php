@@ -1,18 +1,18 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <div class="row d-flex align-items-center m-3">
-        <div class="col-md-6 dsplyswitch">
+    <div class="row">
+        <div class="dsplyswitch">
             <center>
-                <img class="img-fluid mainImgMxSz object-fit-contain border border-4 border-light rounded shadow-lg mb-5 bg-body-tertiary"
+                <img class="img-fluid mainImgMxSz object-fit-contain border rounded shadow-lg mb-5 bg-body-tertiary"
                     src="\img\mainimg.webp" alt="pinyotrabaho">
             </center>
         </div>
-        <div class="col-md-6">
+        <div class="">
             <form action="">
                 @csrf
-                <input class="inputSearchBars form-select form-select-lg mb-3 text-black" list="JobLists"
-                    id="exampleDataList" placeholder="Search for jobs...">
+                <input class="inputSearchBars form-select form-select-lg mb-3 text-black" list="JobLists" id="exampleDataList"
+                    placeholder="Search for jobs...">
                 <datalist id="JobLists">
                     <option value="Urgent Hiring">
                     <option value="Office Staff">
@@ -25,8 +25,8 @@
                     <option value="Job Hiring">
                 </datalist>
 
-                <input class="inputSearchBars form-select-lg form-select mb-3 text-black" list="Places"
-                    id="exampleDataList" placeholder="Where...">
+                <input class="inputSearchBars form-select-lg form-select mb-3 text-black" list="Places" id="exampleDataList"
+                    placeholder="Where...">
                 <datalist id="Places">
                     <option value="Manila">
                     <option value="Cavite">
@@ -82,11 +82,11 @@
                             {{ $noResume = false }}
                     @endif
                 @elseif (Auth::user()->accounttype == 'employer')
-                <a href="/login">Create a Job and Post it!!</a><br><br>
-                @else
-                <a href="/home">Click here to finish setup your account!</a><br><br>
+                    <a href="/login">Create a Job and Post it!!</a><br><br>
+                @else   
+                    <a href="/home">Click here to finish setup your account!</a><br><br>
                 @endif
-             @endif
+            @endif
             </center>
         </div>
     </div>
@@ -112,25 +112,21 @@
                         <h5 class="text-center">No jobpost yet...</h5>
                     @endforelse
                 </div>
-                @endforeach
 
-            </div>
-
-            <div id="jobpost" class="col-7">
-                <div>
-                    @if (isset($jobpost))
-                    <iframe scrolling="no" class="xframe shadow-lg" id="myFrame"
-                        src='/jobposts/{{ $jobpost->id }}'></iframe>
-                    @endif
+                <div id="jobpost" class="col-8">
+                    <div>
+                        @if (isset($jobpost))
+                            <iframe scrolling="no" class="xframe shadow-lg" id="myFrame" src='/jobposts/{{ $jobpost->id }}'></iframe>        
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     <div class="col-1"></div>
 </div>
 <script>
 function myFunction(value) {
-    document.getElementById("myFrame").src = value;
-}
+  document.getElementById("myFrame").src = value;
+  }
 </script>
 @endsection

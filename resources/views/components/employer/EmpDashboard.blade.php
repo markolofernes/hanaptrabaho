@@ -5,4 +5,3 @@
         <div class="row">
             <livewire:employerjobpost />
         </div>
-

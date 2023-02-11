@@ -8,10 +8,6 @@ use Auth;
 
 class ResumeController extends Controller
 {
-    public function index(){
-        return view('home')->with('resumes', Resume::latest()->get());
-    }
-
     public function create(Request $request)
     {
         // dd($request);
@@ -26,7 +22,7 @@ class ResumeController extends Controller
         $resume->language = $request->language;
         $resume->save();
 
-        return redirect()->route('SeekDashboard');
+        return redirect()->route('home');
     }
 
     public function delete($id)
@@ -40,6 +36,7 @@ class ResumeController extends Controller
             return redirect()->route('home');
         }
     }
+
 
     public function update(Request $request)
     {
