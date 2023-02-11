@@ -19,9 +19,9 @@
                     @auth
                     <div class="text-light">
                         <a href="{{ url('/') }}"
-                        class="{{ Request::path() === '/' ? 'active' : 'text-light' }}">Home</a>
+                        class="{{ Request::path() === '/' ? 'active' : 'text-secondary' }}">Job Posts</a>
                         <a href="{{ url('/home') }}"
-                        class="{{ Request::path() === 'home' ? 'active' : 'text-light' }}"> Dashboard</a>
+                        class="{{ Request::path() === 'home' ? 'active' : 'text-secondary' }}"> Dashboard</a>
                     </div>
                     @endauth
                     @endif
@@ -61,6 +61,7 @@
                         </form>
                     </div>
                 </li>
+                {{-- <button id="counter" class="clickbtn btn  btn-sm">💡</button> --}}
                 @endguest
                 {{-- <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">

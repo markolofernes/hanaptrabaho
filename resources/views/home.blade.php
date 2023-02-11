@@ -19,7 +19,7 @@
                     <h5>Hi!, {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</h5> 
                 @endif
                 <h6>{{ Auth::user()->email }}</h6>
-                <a href="#">👤Edit Profile</a>
+                <a href="{{ route('actions.editprofile', Auth::user()->id) }}">👤Edit Profile</a>
             </div>
         </div>
     </div>
@@ -72,16 +72,48 @@
                             </form>
                             @else
                                 {{-- <x-seeker.SeekDashboard /> --}}
-                            <h6>this will gonna be dashboard for jobseekers</h6><br>
+                            <h6>Jobseeker's Dasboard</h6><br>
                             <hr class="small">
                             <div class="text-center">
                                 <h5>Resume</h5>
-                                <small><a href="/createresume">📄Create (PDF)</a> | <a href="#">🖨 Print (PDF) </a> | <a href="#">☁Upload </a><a href="#">🔽 Download (PDF) </a> </small>
+                                <small style="text-decoration: none;color:orange;" {{ $noResume = false }}>
+                                    @forelse ($resumes as $resume)
+                                        @if ($resume->user_id == Auth::user()->id)
+                                            @if ( $noResume == false )
+                                                <a {{ $noResume = true }} href="{{ route('actions.editresume', $resume->id) }}">📝Edit </a> 
+                                                | 
+                                                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">❌ Delete </a> 
+                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Resume</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="display6">Click "Confirmed Delete" to delete your resume</div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <a type="button" class="btn btn-danger px-3 rounded btn-sm" href="{{ route('actions.deleteresume', $resume->id) }}">Confirm Delete</a>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                | 
+                                                <a href="{{ route('generate-resume-pdf', $resume->id) }}">🖨 Print </a> 
+                                                | 
+                                                <a href="{{ route('generate-resume-download-pdf', $resume->id) }}">🔽 Download </a> 
+                                            @endif 
+                                        @elseif(!isset(Auth::user()->resumes->user_id))
+                                            @if ($noResume == false)
+                                                <a {{ $noResume = true }} href="{{ route('actions.createresume', $resume->id) }}">📄Create (PDF)</a> 
+                                            @endif
+                                        @endif
+                                    @empty
+                                        <a href="/createresume">Create your resume here!</a>
+                                    @endforelse
+                                </small>
                                 <hr class="small">
-                                    @foreach($resumes as $resume)
-                                        {{$resume->id}}
-                                    @endforeach    
-                                <x-seeker.resume />
                             </div>
                             @endif
                         {{-- Jobseeker ------------------------------------------------ --}}
@@ -91,7 +123,9 @@
                         {{-- Employer ------------------------------------------------ --}} 
                      @elseif( Auth::user()->accounttype == 'admin')  
                         {{-- Employer ------------------------------------------------ --}}
-                        <x-admin.admin />
+                        <h1>Welcome Admin</h1>
+                        {{-- <x-admin.admin /> --}}
+                        <livewire:search-users />
                         {{-- Employer ------------------------------------------------ --}} 
                      @else
                         @php header('Location:/');exit; @endphp

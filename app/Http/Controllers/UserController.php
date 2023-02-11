@@ -23,4 +23,11 @@ class UserController extends Controller
 
         return redirect()->route('home')->with('success', ' Successfully added!');
     }
+
+    public function edit($id)
+    {
+        $user = User::find($id);
+        return view('actions.editprofile')->with('user', $user);
+    }
+
 }

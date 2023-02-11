@@ -60,7 +60,6 @@
         @foreach($resumes as $resume)
             {{$resume->id}}
         @endforeach    
-    
     <x-seeker.resume />
 </div>
 @endif

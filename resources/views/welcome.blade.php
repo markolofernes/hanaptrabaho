@@ -56,7 +56,7 @@
                             <option selected>Job Type</option>
                             <option value="Full-Time">Full Time</option>
                             <option value="Permanent">Permanent</option>
-                            <option value="New-Grad">New-Grad</option>
+                            <optditresumeion value="New-Grad">New-Grad</optditresumeion>
                             <option value="Contract">Contract</option>
                             <option value="Internship">Internship</option>
                             <option value="Part-Time">Part Time</option>
@@ -64,18 +64,29 @@
                         </select>
                     </div>
                 </div> --}}
-                <button class="btn btn-warning form-control">Search Jobs</button>
+                <button class="btn btn-secondary form-control">Search Jobs</button>
             </form><br>
-            <center>
-                @if ( Auth::user() !== null )
+            <center {{ $noResume = true }}>
+            @if ( Auth::user() !== null )
                 @if (Auth::user()->accounttype == 'seeker')
-                <a href="/login">Upload your resume and post it!</a><br><br>
+                    @if (isset( Auth::user()->resumes->user_id ))
+                        @if ($noResume == true)
+                            <a href="/home">Updated your resume</a><br><br>
+                            {{  $noResume = false }}
+                        @elseif($noResume == true)
+                            <a href="/createresume">Create your resume here!</a><br><br>
+                            {{  $noResume = false }}
+                        @endif 
+                    @elseif($noResume == true)
+                            <a href="/createresume">Create your resume here!</a><br><br>
+                            {{ $noResume = false }}
+                    @endif
                 @elseif (Auth::user()->accounttype == 'employer')
                 <a href="/login">Create a Job and Post it!!</a><br><br>
                 @else
                 <a href="/home">Click here to finish setup your account!</a><br><br>
                 @endif
-                @endif
+             @endif
             </center>
         </div>
     </div>
@@ -83,22 +94,23 @@
 
 <div class="d-flex justify-content-center">
     <div class="col-1"></div>
-    <div class="col-10 card px-3 pb-3">
-        <h3 class="text-center pt-2">Job feeds</h3>
-        <div class="row">
-            <div class="col-5 jobtableoverflow-y">
-                @foreach ($jobposts as $jobpost)
-                <div id="{{ $jobpost->id }}" class="card cursorpointer p-3 mx-1 my-5 shadow-lg"
-                    onclick="myFunction('/jobposts/{{ $jobpost->id }}')">
-                    <h5>{{ $jobpost->jobtitle }}</h5>
-                    <h6><i>{{ $jobpost->user->companyname }}</i></h6>
-                    <hr class="hrsmall">
-                    <p>{{ $jobpost->joblocation }}</p>
-                    <p class="small">{{ $jobpost->jobtype }}</p>
-                    <hr class="hrsmall">
-                    <p class="small"> {{ $jobpost->salary }}</p>
-                    <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                    <p class="small">Posted {{ $jobpost->created_at->diffForhumans() }}</p>
+        <div style="margin:0 auto; min-width:500px; max-width:1400px" class="col-10 card px-3 pb-3">
+            <h3 class="text-center pt-2">Job feeds</h3>
+            <div class="row">
+                <div class="col-4 jobtableoverflow-y">
+                    @forelse ($jobposts as $jobpost)
+                        <div id="{{ $jobpost->id }}" class="card cursorpointer p-3 mx-1 my-5 shadow-lg" onclick="myFunction('/jobposts/{{ $jobpost->id }}')">
+                        <h5>{{ $jobpost->jobtitle }}</h5>
+                        <h6><i>{{ $jobpost->user->companyname }}</i></h6><hr class="hrsmall">
+                            <p>{{ $jobpost->joblocation }}</p>
+                            <p class="small">{{ $jobpost->jobtype }}</p><hr class="hrsmall">
+                            <p class="small"> {{ $jobpost->salary }}</p>
+                            <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
+                            <p class="small">Posted {{ $jobpost->created_at->diffForhumans() }}</p>
+                        </div>
+                    @empty
+                        <h5 class="text-center">No jobpost yet...</h5>
+                    @endforelse
                 </div>
                 @endforeach
 
@@ -116,17 +128,9 @@
     </div>
     <div class="col-1"></div>
 </div>
-
-
 <script>
 function myFunction(value) {
     document.getElementById("myFrame").src = value;
 }
 </script>
 @endsection
-{{-- <div class="card p-3 mx-1 my-5 shadow-lg">
-                        <h5>Full Stack Web Developer</h5>
-                        <h6><i>Microsoft Corporation</i></h6><hr class="hrsmall">
-                        <p class="small">Work from Home</p><hr class="hrsmall">
-                        <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
-                    </div> --}}

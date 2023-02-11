@@ -17,11 +17,11 @@ return new class extends Migration {
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('fullname');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('address');
             $table->string('email');
             $table->longText('textarea');
-            $table->string('skills');
+            $table->longtext('skills');
             $table->string('language');
             $table->timestamps();
         });
