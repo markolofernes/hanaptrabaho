@@ -110,7 +110,7 @@
                                             @endif
                                         @endif
                                     @empty
-                                        <a href="/createresume">Create your resume here!</a>
+                                        <a href="{{ route('actions.createresume') }}">Create your resume here!</a>
                                     @endforelse
                                 </small>
                                 <hr class="small">
