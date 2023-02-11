@@ -1,6 +1,6 @@
 <div>
     <h1 class="fw-bold">User Management
-        <a href="{{ route('generate-pdf') }}" target="_blank" class="px-3 btn btn-secondary btn-sm float-end me-5">⬇ Download User's list as PDF File</a>
+        <a href="{{ route('generate-users-report-pdf') }}" target="_blank" class="px-3 btn btn-secondary btn-sm float-end me-5">⬇ Download User's list as PDF File</a>
     </h1>
     <input wire:model="search" type="text" placeholder="Search users..."/>
     <table class="table">

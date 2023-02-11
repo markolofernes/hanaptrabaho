@@ -9,19 +9,22 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <style>
+        img,
         .card{
             padding:5px;
-            border: solid black;
-            border-radius: 10px;
-            box-shadow: 3px 3px 7px rgba(0,0,0,0.5);
+            border-radius: 15px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.777);
+        }
+        .textshadow{
+            text-shadow: 1px 1px 3px black;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="card">
     <h1>List of Users</h1>
-    <img src="https://hips.hearstapps.com/hmg-prod/images/inspirational-quote-hrm-queen-elizabeth-ii-1665765893.png?resize=480:*" alt="test">
-    <table class="table table-bordered">
+    <table class="table table-bordered textshadow">
         <tr>
             <th>ID</th>
             <th>firstname</th>
@@ -39,4 +42,5 @@
     </table>
     </div>
 </body>
+</html>
 </html>

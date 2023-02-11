@@ -76,17 +76,25 @@ Route::any('/createresume', function () {
     return view('createresume');
 })->name('createresume');
 
-// pdf creator
-Route::get('/generate-pdf', function () {
+// pdf creator - userlists
+Route::get('/generate-users-report-pdf', function () {
     $users = App\Models\User::all();
     $data = [
         'users' => $users,
     ];
-    $pdf = Pdf::loadView('userlist', $data);
-
+    $pdf = Pdf::loadView('pdf.userlist', $data);
     return $pdf->stream('userlist.pdf');
+})->name('generate-users-report-pdf');
 
-})->name('generate-pdf');
+// pdf creator - resume
+Route::get('/generate-resume-pdf/{id}', function () {
+    $Resume = App\Models\Resume::all();
+    $data = [
+        'Resume' => $Resume,
+    ];
+    $pdf = Pdf::loadView('pdf.resume', $data);
+    return $pdf->stream('resume.pdf');
+})->name('generate-resume-pdf');
 
 
 Route::get('/clear', function () {

@@ -1,5 +1,5 @@
 <div class="col-4 jobtableoverflow-y">
-       @foreach (Auth::user()->jobposts as $jobpost)  {{-- wire:loading.remove --}}
+    @foreach ((Auth::user()->jobposts)->sortByDesc('created_at') as $jobpost)  {{-- wire:loading.remove --}}
         <div class="card px-2 mx-1 mt-3 mb-5 shadow-lg">
             @if ( Auth::user() !== null )
                 @if (Auth::user()->accounttype == 'seeker')
@@ -27,7 +27,7 @@
                 <p class="small">Posted {{ $jobpost->created_at->diffForhumans() }}</p>
             </div>
         </div>
-     @endforeach
+    @endforeach
 </div>
 <div id="jobpost" class="col-8">
     <div>

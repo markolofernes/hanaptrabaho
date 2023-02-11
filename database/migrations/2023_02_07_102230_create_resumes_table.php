@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->string('address');
             $table->string('email');
             $table->longText('textarea');
-            $table->string('skills');
+            $table->longtext('skills');
             $table->string('language');
             $table->timestamps();
         });

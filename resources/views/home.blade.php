@@ -100,7 +100,7 @@
                                                     </div>
                                                     </div>
                                                 | 
-                                                <a href="#">🖨 Print </a> 
+                                                <a href="{{ route('generate-resume-pdf', $resume->id) }}">🖨 Print </a> 
                                                 | 
                                                 <a href="#">🔽 Download </a> 
                                             @endif 
