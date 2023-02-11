@@ -102,7 +102,7 @@
                                                 | 
                                                 <a href="{{ route('generate-resume-pdf', $resume->id) }}">🖨 Print </a> 
                                                 | 
-                                                <a href="#">🔽 Download </a> 
+                                                <a href="{{ route('generate-resume-download-pdf', $resume->id) }}">🔽 Download </a> 
                                             @endif 
                                         @elseif(!isset(Auth::user()->resumes->user_id))
                                             @if ($noResume == false)

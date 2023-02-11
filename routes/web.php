@@ -96,6 +96,15 @@ Route::get('/generate-resume-pdf/{id}', function () {
     return $pdf->stream('resume.pdf');
 })->name('generate-resume-pdf');
 
+Route::get('/generate-resume-download-pdf/{id}', function () {
+    $Resume = App\Models\Resume::all();
+    $data = [
+        'Resume' => $Resume,
+    ];
+    $pdf = Pdf::loadView('pdf.resume', $data);
+    return $pdf->download('resume.pdf');
+})->name('generate-resume-download-pdf');
+
 
 Route::get('/clear', function () {
     Artisan::call('cache:clear');
