@@ -12,7 +12,7 @@
             <img class="img-fluid d-block w-100" src="\img\{{ Auth::user()->accounttype }}.webp">
         </div>
         <div class="col align-items-center"><br>
-            <div class="col-10 card border border-light shadow-lg m-5 p-3 py-5">
+            <div class="col-10 card shadow-lg m-5 p-3 py-5">
                 <h3 class="text-center">Welcome!</h3><br>
                 @php  $name = Auth::user()->firstname @endphp
                 @if ($name !== 'unsigned')
@@ -68,7 +68,7 @@
 
                                 <input type="hidden" id="companyname" name="companyname" class="form-control text-black"  value="unsigned" placeholder="companyname" required>
 
-                                <button class="btn btn-lg btn-primary btn-block mt-4 form-control"  type="submit">Confirm</button>
+                                <button class="btn btn-lg btn-secondary btn-block mt-4 form-control"  type="submit">Confirm</button>
                             </form>
                             @else
                                 {{-- <x-seeker.SeekDashboard /> --}}
@@ -100,7 +100,7 @@
                                                     </div>
                                                     </div>
                                                 | 
-                                                <a href="{{ route('generate-resume-pdf', $resume->id) }}">🖨 Print </a> 
+                                                <a href="{{ route('generate-resume-pdf', $resume->id) }}" target="_blank">🖨 Print </a> 
                                                 | 
                                                 <a href="{{ route('generate-resume-download-pdf', $resume->id) }}">🔽 Download </a> 
                                             @endif 
@@ -110,7 +110,7 @@
                                             @endif
                                         @endif
                                     @empty
-                                        <a href="/createresume">Create your resume here!</a>
+                                        <a href="{{ route('actions.createresume') }}">Create your resume here!</a>
                                     @endforelse
                                 </small>
                                 <hr class="small">
