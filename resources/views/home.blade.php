@@ -100,7 +100,7 @@
                                                     </div>
                                                     </div>
                                                 | 
-                                                <a href="{{ route('generate-resume-pdf', $resume->id) }}" target="_blank">🖨 Print </a> 
+                                                <a href="{{ route('generate-resume-pdf', $resume->id) }}" target="_blank">📄 View / 🖨 Print </a> 
                                                 | 
                                                 <a href="{{ route('generate-resume-download-pdf', $resume->id) }}">🔽 Download </a> 
                                             @endif 
@@ -113,7 +113,10 @@
                                         <a href="{{ route('actions.createresume') }}">Create your resume here!</a>
                                     @endforelse
                                 </small>
-                                <hr class="small">
+                                <hr>
+                                <h4>Jobs</h4>
+                                <a href="{{ route('showsavejobs', Auth::user()->id) }}">Show saved jobs</a><br>
+                                <a href="{{ route('showsavejobs', Auth::user()->id) }}">Applied Jobs</a>
                             </div>
                             @endif
                         {{-- Jobseeker ------------------------------------------------ --}}

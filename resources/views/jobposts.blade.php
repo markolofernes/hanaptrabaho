@@ -9,8 +9,20 @@
                 <p>{{ $jobpost->joblocation }}</p>
             @if ( Auth::user() !== null )
                 @if (Auth::user()->accounttype == 'seeker')
-                    <button class="btn btn-warning mx-2">✔Apply Now</button>
-                    <button class="btn btn-warning mx-2">🖤 Save</button>
+                <div class="d-flex flex-row mb-3">
+                    <form action="{{ route('applyjob', Auth::user()->id ) }}" method="POST">
+                        @csrf
+                        <input type="hidden" id="jobpost_id" name="jobpost_id" value="{{ $jobpost->id }}">
+                        <input type="hidden" id="applicant_id" name="applicant_id" value="{{ Auth::user()->id }}">
+                        <button class="btn btn-warning m-2 btn-sm" type="submit">✔Apply Now</button>
+                    </form>
+                    <form action="{{ route('savejob', Auth::user()->id ) }}" method="POST">
+                        @csrf
+                        <input type="hidden" id="jobpost_id" name="jobpost_id" value="{{ $jobpost->id }}">
+                        <input type="hidden" id="applicant_id" name="applicant_id" value="{{ Auth::user()->id }}">
+                        <button class="btn btn-warning m-2 btn-sm" type="submit">🖤 Save</button>
+                    </form>
+                </div>
                 @endif
             @endif                           
             <hr>

@@ -8,7 +8,13 @@
 </head>
 <body>
     <center><br>
-        <h3 style="margin:0 auto;color:white;padding: 20px 0 0 0;">Job entry successfully deleted!</h3>
+        <h3 style="margin:0 auto;color:white;padding: 20px 0 0 0;">
+        @if (session('message') == '')
+            Job entry deleted succesfully!...
+        @else
+            {{session('message')}}
+        @endif
+        </h3>
     </center>
 </body>
 </html>

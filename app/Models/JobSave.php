@@ -5,26 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JobPost extends Model
+class JobSave extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    protected $table = 'jobposts';
+    protected $table = 'jobsaves';
 
     protected $fillable = [
-        'user_id',
-        'jobtitle',
-        'joblocation',
-        'jobtype',
-        'jobdescription',
-        'salary',
+        'jobpost_id',
+        'applicant_id',
     ];
-
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 
+    public function jobposts()
+    {
+        return $this->belongsToMany(JobPost::class);
+    }
 }
