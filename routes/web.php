@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\JobSaveController;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\JobPostController;
+use App\Http\Controllers\JobApplicantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,14 @@ Route::post('/createaccount', [UserController::class, 'update'])->name('createac
 
 Route::get('/actions.editprofile/{id}', [UserController::class, 'edit'])->name('actions.editprofile');
 
+Route::get('/actions.delesave/{id}', [JobSaveController::class, 'delete'])->name('actions.delesave');
+
+Route::get('/showsavejobs/{id}', [JobSaveController::class, 'index'])->name('showsavejobs');
+
+Route::post('/savejob/{id}', [JobSaveController::class, 'create'])->name('savejob');
+
+Route::post('/applyjob/{id}', [JobApplicantController::class, 'create'])->name('applyjob');
+
 // jobpost
 Route::post('/postjob', [JobPostController::class, 'create'])->name('postjob');
 
@@ -53,7 +63,6 @@ Route::any('/actions.createjobpost', function () {
     return view('actions.createjobpost');
 })->name('actions.createjobpost');
 
-// Route::any('/jobposts/{id}', [HomeController::class, 'viewjobpost'])->name('jobposts');
 Route::get('/jobposts/{id}', function ($id) {
     $jobpost = App\Models\JobPost::find($id);
     if ($jobpost !== null) {

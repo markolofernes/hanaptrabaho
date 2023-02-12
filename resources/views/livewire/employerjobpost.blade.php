@@ -23,7 +23,7 @@
                 <p>{{ $jobpost->joblocation }}</p>
                 <p class="small">{{ $jobpost->jobtype }}</p><hr class="hrsmall">
                 <p class="small"> {{ $jobpost->salary }}</p>
-                <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span>
+                {{-- <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span> --}}
                 <p class="small">Posted {{ $jobpost->created_at->diffForhumans() }}</p>
             </div>
         </div>
