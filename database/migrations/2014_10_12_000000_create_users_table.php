@@ -26,6 +26,7 @@ return new class extends Migration {
             $table->string('address')->default('unsigned');
             $table->string('education')->default('unsigned');
             $table->enum('accounttype', ['employer', 'seeker', 'admin', 'unsigned'])->default('unsigned');
+            $table->enum('status', ['pending', 'paid'])->default('pending');
 
             $table->timestamps();
 

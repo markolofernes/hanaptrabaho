@@ -19,6 +19,7 @@ class UserController extends Controller
         $user->companyname = $request->companyname;
         $user->education = $request->education;
         $user->accounttype = $request->accounttype;
+        // $user->status = $request->accounttype;
         $user->save();
 
         return redirect()->route('home')->with('success', ' Successfully added!');

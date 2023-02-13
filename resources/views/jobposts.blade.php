@@ -3,8 +3,12 @@
     <div class="card">
         @foreach ($jobposts as $jobpost)
             <div id="jobDescPanel" class="jobpanel shadow-lg">
-                <h3 class="mb-3">Pay now to publish the job posting</h3>
-                <div id="paypal-button-container"></div>
+                @foreach ($users as $user)
+                  @if ($jobpost->user_id == $user->id  && $user->status == 'pending')
+                    <h3 class="mb-3">Pay now to publish the job posting</h3>
+                    <div id="paypal-button-container"></div>
+                  @endif 
+                @endforeach
                 <h4>{{ $jobpost->jobtitle }}</h4>
                 <h6>{{ $jobpost->user->companyname }}</h6> 
                 <p>{{ $jobpost->joblocation }}</p>
@@ -32,9 +36,6 @@
                 <h6>💼 {{ $jobpost->jobtype }}</h6>
                 <h6>💵 {{ $jobpost->salary }}</h6>
                 <hr>
-                <h5>Qualifications</h5>
-                <p>WordPress: 3 years (Required)</p> 
-                <hr>
                 {!! $jobpost->jobdescription !!}
                 <i style="font-size:12px">Posted: {{ $jobpost->created_at->diffforhumans() }}</i>
             </div>
@@ -42,6 +43,12 @@
         </div>                    
         @endforeach
     </div>
+
+    {{-- <script>
+      var collection = '{{ Auth::user()->firstname }}';
+      alert(collection);
+    </script> --}}
+
     <script src="https://www.paypal.com/sdk/js?client-id=ATijLTD8Ekmy7GN6JzMhe6z0Uzrf5k3MjBWTxaBauVS3pTljYH976rtcdRDWDr5flhvUPWcLP9upRILh&currency=PHP" data-sdk-integration-source="button-factory"></script>
     <script>
       function initPayPalButton() {
@@ -51,7 +58,6 @@
             color: 'gold',
             layout: 'vertical',
             label: 'paypal',
-            
           },
           createOrder: function(data, actions) {
             return actions.order.create({

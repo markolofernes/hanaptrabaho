@@ -75,14 +75,7 @@ Route::any('/actions.createjobpost', function () {
     return view('actions.createjobpost');
 })->name('actions.createjobpost');
 
-Route::get('/jobposts/{id}', function ($id) {
-    $jobpost = App\Models\JobPost::find($id);
-    if ($jobpost !== null) {
-        return view('jobposts')->with('jobposts', [$jobpost]);
-    } else {
-        return view('home');
-    }
-})->name('/');
+Route::get('/jobposts/{id}', [HomeController::class, 'myjobpost'])->name('/');
 
 
 Route::post('/actions.postresume', [ResumeController::class, 'create'])->name('actions.postresume');
@@ -151,3 +144,5 @@ Route::get('/clear', function () {
 });
 
 Route::get('sendemail', [MailController::class, 'sendmail'])->name('sendemail');
+
+Route::get('/jobs.search', [HomeController::class, 'search'])->name('jobs.search');
