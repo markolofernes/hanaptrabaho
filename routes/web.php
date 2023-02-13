@@ -48,6 +48,8 @@ Route::post('/savejob/{id}', [JobSaveController::class, 'create'])->name('savejo
 
 Route::post('/applyjob/{id}', [JobApplicantController::class, 'create'])->name('applyjob');
 
+Route::get('/appliedjobs/{id}', [JobApplicantController::class, 'index'])->name('appliedjobs');
+
 // jobpost
 Route::post('/postjob', [JobPostController::class, 'create'])->name('postjob');
 
