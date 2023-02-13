@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\JobSaveController;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\JobSaveController;
 use App\Http\Controllers\JobPostController;
+use App\Http\Controllers\InterviewController;
 use App\Http\Controllers\JobApplicantController;
 
 /*
@@ -61,6 +62,14 @@ Route::post('/actions.updatejobentry/{id}', [JobPostController::class, 'update']
 
 Route::get('/deletejob/{id}', [JobPostController::class, 'delete'])->name('deletejob');
 
+Route::post('//{id}', [InterviewController::class, 'create'])->name('createinterviewappointment');
+
+Route::post('/createinterview', [InterviewController::class, 'create'])->name('createinterview');
+
+Route::any('/createinterviewappointment', function () {
+    return view('createinterviewappointment');
+})->name('createinterviewappointment');
+
 Route::any('/actions.createjobpost', function () {
     return view('actions.createjobpost');
 })->name('actions.createjobpost');
@@ -108,11 +117,6 @@ Route::get('/generate-resume-pdf/{id}', function () {
 })->name('generate-resume-pdf');
 
 
-
-
-
-// =========================================================================
-
 Route::get('/view-resume-pdf/{id}', function ($id) {
     $Resume = App\Models\Resume::all();
     $data = [
@@ -122,13 +126,6 @@ Route::get('/view-resume-pdf/{id}', function ($id) {
     $pdf = Pdf::loadView('pdf.viewresume', $data);
     return $pdf->stream('resume.pdf');
 })->name('view-resume-pdf');
-
-// =========================================================================
-
-
-
-
-
 
 
 Route::get('/generate-resume-download-pdf/{id}', function () {
