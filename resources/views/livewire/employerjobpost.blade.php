@@ -14,14 +14,13 @@
                         <li><a class="dropdown-item" role="button" wire:click="deleteId({{ $jobpost->id }})"
                                 onclick="cleariframe()">❌Delete</a></li>
                         @endif
-                        {{-- href="{{ route('deletejob', $jobpost->id) }}" --}}
                     </ul>
                 </div>
             @endif
         @endif
         <div id="{{ $jobpost->id }}" class="cursorpointer p-2" onclick="myFunction('/jobposts/{{ $jobpost->id }}')">
             @if($jobpost->status == 'pending')
-            <span class="badge bg-warning mb-3">Unpaid</span>
+                <span class="badge bg-warning mb-3">Unpaid</span>
             @endif
             <h5>{{ $jobpost->jobtitle }}</h5>
             <h6><i>{{ $jobpost->user->companyname }}</i></h6>
@@ -38,8 +37,9 @@
 <div id="jobpost" class="col-8">
     <div>
         @if (isset($jobpost))
-        <iframe scrolling="no" class="jobpanel shadow-lg" style="width:100%;height:100vh;" id="myFrame"
-            src='/jobposts/{{ $jobpost->id }}'></iframe>
+            <iframe scrolling="no" class="jobpanel shadow-lg" style="width:100%;height:100vh;" id="myFrame"
+                src='/jobposts/{{ $jobpost->id }}'>
+            </iframe>
         @endif
     </div>
 </div>
