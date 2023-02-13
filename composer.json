@@ -12,7 +12,10 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
-        "livewire/livewire": "^2.11"
+        "livewire/livewire": "^2.11",
+        "mailgun/mailgun-php": "^3.5",
+        "nyholm/psr7": "^1.5",
+        "symfony/http-client": "^6.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -60,7 +63,8 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
         }
     },
     "minimum-stability": "stable",

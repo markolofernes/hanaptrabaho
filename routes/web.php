@@ -3,6 +3,7 @@
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\JobSaveController;
@@ -62,7 +63,7 @@ Route::post('/actions.updatejobentry/{id}', [JobPostController::class, 'update']
 
 Route::get('/deletejob/{id}', [JobPostController::class, 'delete'])->name('deletejob');
 
-Route::post('//{id}', [InterviewController::class, 'create'])->name('createinterviewappointment');
+// Route::post('//{id}', [InterviewController::class, 'create'])->name('createinterviewappointment');
 
 Route::post('/createinterview', [InterviewController::class, 'create'])->name('createinterview');
 
@@ -148,3 +149,5 @@ Route::get('/clear', function () {
     return 'Cleared! <br><a href="/"> back </a>';
 
 });
+
+Route::get('sendemail', [MailController::class, 'sendmail'])->name('sendemail');
