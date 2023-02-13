@@ -41,10 +41,7 @@ class HomeController extends Controller
 
     public function viewjobpost($id)
     {
-
-        $account = JobPost::findOrFail($id);
-
-
+        // $account = JobPost::findOrFail($id);
         return view('jobposts')->with('jobposts', JobPost::find($id));
     }
 
