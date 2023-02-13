@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->string('jobtype');
             $table->longText('jobdescription');
             $table->string('salary');
+            $table->enum('status', ['pending', 'paid'])->defaultValue('pending');
             $table->timestamps();
             // $table->string('requiredskillset');
             // $table->string('qualifications');
