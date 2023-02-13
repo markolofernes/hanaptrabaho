@@ -107,6 +107,30 @@ Route::get('/generate-resume-pdf/{id}', function () {
     return $pdf->stream('resume.pdf');
 })->name('generate-resume-pdf');
 
+
+
+
+
+// =========================================================================
+
+Route::get('/view-resume-pdf/{id}', function ($id) {
+    $Resume = App\Models\Resume::all();
+    $data = [
+        'Resume' => $Resume,
+        'user_id' => $id,
+    ];
+    $pdf = Pdf::loadView('pdf.viewresume', $data);
+    return $pdf->stream('resume.pdf');
+})->name('view-resume-pdf');
+
+// =========================================================================
+
+
+
+
+
+
+
 Route::get('/generate-resume-download-pdf/{id}', function () {
     $Resume = App\Models\Resume::all();
     $data = [

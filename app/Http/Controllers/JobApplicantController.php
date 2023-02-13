@@ -6,6 +6,7 @@ use App\Models\JobApplicant;
 use App\Models\JobPost;
 use App\Models\JobSave;
 // use App\Models\User;
+use App\Models\Resume;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,12 +18,14 @@ class JobApplicantController extends Controller
         $jobapplicants = JobApplicant::where('applicant_id', $id)->get();
         $jobapplicnts = JobApplicant::all();
         $jobposts = JobPost::all();
+        $resumes = Resume::all();
         $users = User::all();
         return view('applied')
             ->with('jobposts', $jobposts)
             ->with('jobapplicants', $jobapplicants)
             ->with('users', $users)
-            ->with('jobapplicnts', $jobapplicnts);
+            ->with('jobapplicnts', $jobapplicnts)
+            ->with('resumes', $resumes);
     }
 
     public function create(Request $request)
