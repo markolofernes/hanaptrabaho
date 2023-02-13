@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function employerdashboard()
     {
         // dd(JobPost::all());
-        return view('home')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(6));
+        return view('home')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(100));
         // return view('welcome')->with('jobposts', JobPost::get());
     }
 
@@ -53,7 +53,7 @@ class HomeController extends Controller
         // $user = Account::find(1)->user;
         // return view('home', compact('user'));
         // return view('home');
-        return view('welcome')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(12));
+        return view('welcome')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(100));
     }
 
     public function account($id)

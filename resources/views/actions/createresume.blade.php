@@ -17,7 +17,6 @@
                                 <h3 class="mb-3 text-center">Create Resume</h3><hr>
                                 <div class="row mb-4">
                                      <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                    {{-- <input type="hidden" id="accounttype" name="accounttype" id="seeker" value="seeker"> --}}
                                     <div class="col-12">
                                         <label for="fullname" class="sr-only mt-3">Full Name</label>
                                         <input type="text" id="fullname" name="fullname" class="form-control text-black" value="{{ old('fullname') }}" required>

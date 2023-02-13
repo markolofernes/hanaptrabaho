@@ -48,6 +48,8 @@ Route::post('/savejob/{id}', [JobSaveController::class, 'create'])->name('savejo
 
 Route::post('/applyjob/{id}', [JobApplicantController::class, 'create'])->name('applyjob');
 
+Route::get('/appliedjobs/{id}', [JobApplicantController::class, 'index'])->name('appliedjobs');
+
 // jobpost
 Route::post('/postjob', [JobPostController::class, 'create'])->name('postjob');
 
@@ -104,6 +106,30 @@ Route::get('/generate-resume-pdf/{id}', function () {
     $pdf = Pdf::loadView('pdf.resume', $data);
     return $pdf->stream('resume.pdf');
 })->name('generate-resume-pdf');
+
+
+
+
+
+// =========================================================================
+
+Route::get('/view-resume-pdf/{id}', function ($id) {
+    $Resume = App\Models\Resume::all();
+    $data = [
+        'Resume' => $Resume,
+        'user_id' => $id,
+    ];
+    $pdf = Pdf::loadView('pdf.viewresume', $data);
+    return $pdf->stream('resume.pdf');
+})->name('view-resume-pdf');
+
+// =========================================================================
+
+
+
+
+
+
 
 Route::get('/generate-resume-download-pdf/{id}', function () {
     $Resume = App\Models\Resume::all();

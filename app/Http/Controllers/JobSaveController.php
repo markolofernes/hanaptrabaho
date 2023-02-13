@@ -26,21 +26,24 @@ class JobSaveController extends Controller
 
     public function create(Request $request)
     {
+        $exists = DB::table('jobsaves')
+            ->where('jobpost_id', $request->jobpost_id)
+            ->where('applicant_id', $request->applicant_id)
+            ->exists();
 
-        $exists = DB::table('jobsaves')->where('jobpost_id', $request->jobpost_id)->exists();
         $message = 'Saved successfully!';
         if ($exists) {
             $message = 'This Job entry was already saved';
         } else {
-            $jobsaves = new JobSave;
-            $jobsaves->jobpost_id = $request->jobpost_id;
-            $jobsaves->applicant_id = $request->applicant_id;
-
-            $jobsaves->save();
+            $jobapplicant = new JobSave;
+            $jobapplicant->jobpost_id = $request->jobpost_id;
+            $jobapplicant->applicant_id = $request->applicant_id;
+            $jobapplicant->save();
         }
 
         return redirect()->route('blank')->with('message', $message);
     }
+
 
 
     public function delete($id)

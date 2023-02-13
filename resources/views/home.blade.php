@@ -116,7 +116,7 @@
                                 <hr>
                                 <h4>Jobs</h4>
                                 <a href="{{ route('showsavejobs', Auth::user()->id) }}">Show saved jobs</a><br>
-                                <a href="{{ route('showsavejobs', Auth::user()->id) }}">Applied Jobs</a>
+                                <a href="{{ route('appliedjobs', Auth::user()->id) }}">Applied Jobs</a>
                             </div>
                             @endif
                         {{-- Jobseeker ------------------------------------------------ --}}
