@@ -59,11 +59,21 @@ Route::post('/actions.updatejobentry/{id}', [JobPostController::class, 'update']
 
 Route::get('/deletejob/{id}', [JobPostController::class, 'delete'])->name('deletejob');
 
-Route::post('/createinterview', [InterviewController::class, 'create'])->name('createinterview');
+// Route::get('/actions.sendinterview', [InterviewController::class, 'create'])->name('actions.sendinterview');
 
-// Route::any('/createinterviewappointment', function () {
-//     return view('createinterviewappointment');
-// })->name('createinterviewappointment');
+
+Route::any('/actions.sendinterview/{id}', function ($id) {
+    $users = App\Models\User::all();
+    $users = [
+        'user' => $users,
+        'user_id' => $id,
+    ];
+    return view('actions.sendinterview');
+})->name('actions.sendinterview');
+
+// Route::any('/actions.sendinterview', function () {
+//     return view('actions.sendinterview');
+// })->name('actions.sendinterview');
 
 Route::any('/actions.createjobpost', function () {
     return view('actions.createjobpost');

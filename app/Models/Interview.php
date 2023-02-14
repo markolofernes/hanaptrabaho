@@ -12,7 +12,6 @@ class Interview extends Model
     protected $table = 'interviews';
 
     protected $fillable = [
-        'appointmentdate',
         'description',
     ];
 
@@ -20,5 +19,4 @@ class Interview extends Model
     {
         return $this->belongsToMany(User::class);
     }
-
 }

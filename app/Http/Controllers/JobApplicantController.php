@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\JobApplicant;
 use App\Models\JobPost;
 use App\Models\JobSave;
-// use App\Models\User;
 use App\Models\Resume;
 use App\Models\User;
 use Illuminate\Http\Request;
