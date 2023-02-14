@@ -190,3 +190,8 @@ footer{
     resize: both;
     overflow: auto;
 }
+#toggle-btn{
+    position:absolute;
+    top: 20px;
+
+}

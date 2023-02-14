@@ -9,42 +9,6 @@
             </center> --}}
         </div>
         <div class="">
-
-            {{-- <form action="">
-                @csrf
-                <input action="{{ route('jobs.search') }}" method="GET" class="inputSearchBars form-select form-select-lg mb-3 text-black" list="JobLists" id="exampleDataList"
-                    placeholder="Search for jobs...">
-                <datalist id="JobLists">
-                    <option value="Urgent Hiring">
-                    <option value="Office Staff">
-                    <option value="Work From Home">
-                    <option value="Part Time">
-                    <option value="Encoder">
-                    <option value="Non Voice Work From Home">
-                    <option value="Direct Hiring">
-                    <option value="Part Time Work From Home">
-                    <option value="Job Hiring">
-                </datalist>
-
-                <input class="inputSearchBars form-select-lg form-select mb-3 text-black" list="Places" id="exampleDataList"
-                    placeholder="Where...">
-                <datalist id="Places">
-                    <option value="Manila">
-                    <option value="Cavite">
-                    <option value="Quezon City">
-                    <option value="Las Piñas">
-                    <option value="Bacoor, Cavite">
-                    <option value="Muntin Lupa">
-                    <option value="Alabang">
-                    <option value="Parañaque City">
-                    <option value="Taguig">
-                    <option value="Makati">
-                    <option value="Pasig City">
-                    <option value="Pasay City">
-                </datalist>
-
-                <button type="submit" class="btn btn-secondary form-control">Search for Jobs</button>
-            </form> --}}
             <br>
             <center {{ $noResume = true }}>
             @if ( Auth::user() !== null )
@@ -71,7 +35,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="d-flex justify-content-center">
     <div class="col-1"></div>
