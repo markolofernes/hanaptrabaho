@@ -9,7 +9,7 @@
                             {{-- @if ($user->id == $jobpost->user_id && $user->status == 'paid') --}}
                             @if ($jobpost->user->status == 'paid')
                                 <div class="col-4">
-                                    <div id="{{ $jobpost->id }}" class="card cursorpointer mx-3 p-3 shadow-lg" onclick="window.open('/jobposts/{{ $jobpost->id }}', '_blank');">
+                                    <div id="{{ $jobpost->id }}" class="card cursorpointer mx-3 p-3 shadow-lg" onclick="window.open('/viewjob/{{ $jobpost->id }}', '_blank');">
                                         {{-- onclick="myFunction('/jobposts/{{ $jobpost->id }}') --}}
                                         {{-- <a href="/jobposts/{{ $jobpost->id }}" target="_blank" >show</a> --}}
                                     <h5>{{ $jobpost->jobtitle }}</h5>   

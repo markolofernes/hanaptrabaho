@@ -77,6 +77,17 @@ class HomeController extends Controller
             return view('home');
         }
     }
+    public function viewjob($id)
+    {
+        $jobpost = JobPost::find($id);
+        if ($jobpost !== null) {
+            return view('viewjob')
+                ->with('jobposts', [$jobpost])
+                ->with('users', User::all());
+        } else {
+            return view('home');
+        }
+    }
 
     public function search(Request $request)
     {

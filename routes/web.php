@@ -77,6 +77,8 @@ Route::any('/actions.createjobpost', function () {
 
 Route::get('/jobposts/{id}', [HomeController::class, 'myjobpost'])->name('/');
 
+Route::get('/viewjob/{id}', [HomeController::class, 'viewjob'])->name('viewjob');
+
 
 Route::post('/actions.postresume', [ResumeController::class, 'create'])->name('actions.postresume');
 
