@@ -4,6 +4,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\JobPost;
+use App\Models\User;
 use Livewire\Component;
 use Auth;
 
@@ -15,7 +16,17 @@ class Employerjobpost extends Component
         // $user = Account::find(1)->user;
         // return view('home', compact('user'));
         // return view('home');
-        return view('livewire.employerjobpost')->with('jobposts', JobPost::orderBy('created_at', 'asc')->paginate(12));
+        return view('livewire.employerjobpost')
+            ->with('jobposts', JobPost::orderBy('created_at', 'asc')->get())
+            ->with('jobposts', User::all());
+    }
+
+    public function render()
+    {
+        return view('livewire.employerjobpost')
+            ->with('jobposts', JobPost::orderBy('created_at', 'asc')->get())
+            ->with('jobposts', User::all());
+
     }
 
     // public $newJobpost;
@@ -23,12 +34,6 @@ class Employerjobpost extends Component
     // {
     //     $this->newJobpost = "test new jobpost";
     // }
-    public function render()
-    {
-        // return view('livewire.counter');
-        return view('livewire.employerjobpost')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(12));
-
-    }
 
     public function deleteId($id)
     {

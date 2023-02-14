@@ -10,7 +10,7 @@
         </div>
         <div class="">
 
-            <form action="">
+            {{-- <form action="">
                 @csrf
                 <input action="{{ route('jobs.search') }}" method="GET" class="inputSearchBars form-select form-select-lg mb-3 text-black" list="JobLists" id="exampleDataList"
                     placeholder="Search for jobs...">
@@ -44,7 +44,8 @@
                 </datalist>
 
                 <button type="submit" class="btn btn-secondary form-control">Search for Jobs</button>
-            </form><br>
+            </form> --}}
+            <br>
             <center {{ $noResume = true }}>
             @if ( Auth::user() !== null )
                 @if (Auth::user()->accounttype == 'seeker')
@@ -71,11 +72,23 @@
     </div>
 </div>
 
+
 <div class="d-flex justify-content-center">
     <div class="col-1"></div>
         <div style="margin:0 auto; min-width:500px; max-width:1400px" class="col-10 card px-3 pb-3">
-            <h3 class="text-center pt-2">Job feeds</h3>
+            <div class="col-sm"><h3 class="pt-4 text-center">Job feeds</h3></div>
+            <div class="d-flex flex-row">
+                <div class="col-sm"> <button id="toggle-btn" class="btn btn-sm text-white">🔍Toggle Job Search</button></div>
+                
+            </div>
+
+<div id="component-1" style="display: none;">
+    <livewire:search-jobs />
+</div>
+<div id="component-2">
             <div class="row">
+
+            {{-- <livewire:search-jobs /> --}}
                 <div class="col-4 jobtableoverflow-y">
                     @foreach ($users as $user)
                         @forelse ($jobposts as $jobpost)
@@ -94,17 +107,19 @@
                             <h5 class="text-center">No jobpost yet...</h5>
                         @endforelse     
                     @endforeach
-
                 </div>
-
                 <div id="jobpost" class="col-8">
                     <div>
                         @if (isset($jobpost))
-                            <iframe scrolling="no" class="xframe shadow-lg" id="myFrame" src='/jobposts/{{ $jobpost->id }}'></iframe>        
+                            @if ($jobpost->user->status == 'paid')
+                                <iframe scrolling="no" class="xframe shadow-lg" id="myFrame" src='/jobposts/{{ $jobpost->id }}'></iframe>        
+                            @endif
                         @endif
                     </div>
                 </div>
             </div>
+</div>  
+
         </div>
     <div class="col-1"></div>
 </div>
@@ -113,4 +128,7 @@ function myFunction(value) {
   document.getElementById("myFrame").src = value;
   }
 </script>
+
+
+   
 @endsection

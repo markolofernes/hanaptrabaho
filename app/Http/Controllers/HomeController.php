@@ -27,14 +27,17 @@ class HomeController extends Controller
     public function employerdashboard()
     {
         // dd(JobPost::all());
-        return view('home')->with('jobposts', JobPost::orderBy('created_at', 'desc')->paginate(100));
+        return view('home')
+            ->with('jobposts', JobPost::orderBy('created_at', 'desc')->get())
+            ->with('users', User::all());
         // return view('welcome')->with('jobposts', JobPost::get());
     }
 
     public function seekerdashboard()
     {
         // dd(Resume::all());
-        return view('home')->with('resumes', Resume::all());
+        return view('home')->with('resumes', Resume::all())
+            ->with('users', User::all());
         // return view('/home')->with('resume', Resume::find($id));
     }
 

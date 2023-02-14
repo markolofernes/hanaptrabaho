@@ -5,23 +5,25 @@
             @if (Auth::user()->accounttype == 'seeker')
             <button class="btn btn-warning mx-2">Apply Now</button><button class="btn btn-warning mx-2">🖤 Save</button>
             @elseif (Auth::user()->accounttype == 'employer')
-                <div class="dropdown">
-                    <a class="jobminimenu" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ••• </a>
-                    <ul class="dropdown-menu">
-                        @if($jobpost->user_id == Auth::user()->id)
-                        <li><a class="dropdown-item" role="button"
-                                href="{{ route('actions.editjobentry', $jobpost->id ) }}">📝Edit</a></li>
-                        <li><a class="dropdown-item" role="button" wire:click="deleteId({{ $jobpost->id }})"
-                                onclick="cleariframe()">❌Delete</a></li>
-                        @endif
-                    </ul>
-                </div>
+            <div class="dropdown">
+                <a class="jobminimenu" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ••• </a>
+                <ul class="dropdown-menu">
+                    @if($jobpost->user_id == Auth::user()->id)
+                    <li><a class="dropdown-item" role="button"
+                            href="{{ route('actions.editjobentry', $jobpost->id ) }}">📝Edit</a></li>
+                    <li><a class="dropdown-item" role="button" wire:click="deleteId({{ $jobpost->id }})"
+                            onclick="cleariframe()">❌Delete</a></li>
+                    @endif
+                    {{-- href="{{ route('deletejob', $jobpost->id) }}" --}}
+                </ul>
+            </div>
             @endif
         @endif
         <div id="{{ $jobpost->id }}" class="cursorpointer p-2" onclick="myFunction('/jobposts/{{ $jobpost->id }}')">
-            @if($jobpost->status == 'pending')
+                @if($jobpost->user->status == 'pending')
                 <span class="badge bg-warning mb-3">Unpaid</span>
-            @endif
+                @endif    
+
             <h5>{{ $jobpost->jobtitle }}</h5>
             <h6><i>{{ $jobpost->user->companyname }}</i></h6>
             <hr class="hrsmall">
@@ -29,6 +31,7 @@
             <p class="small">{{ $jobpost->jobtype }}</p>
             <hr class="hrsmall">
             <p class="small"> {{ $jobpost->salary }}</p>
+            {{-- <span class="capsule">LARAVEL PHP JAVASCRIPT HTML CSS SCSS REACT VITE LIVEWIRE</span> --}}
             <p class="small">Posted {{ $jobpost->created_at->diffForhumans() }}</p>
         </div>
     </div>
@@ -37,9 +40,8 @@
 <div id="jobpost" class="col-8">
     <div>
         @if (isset($jobpost))
-            <iframe scrolling="no" class="jobpanel shadow-lg" style="width:100%;height:100vh;" id="myFrame"
-                src='/jobposts/{{ $jobpost->id }}'>
-            </iframe>
+        <iframe scrolling="no" class="jobpanel shadow-lg" style="width:100%;height:100vh;" id="myFrame"
+            src='/jobposts/{{ $jobpost->id }}'></iframe>
         @endif
     </div>
 </div>

@@ -15,7 +15,6 @@
             <label for="education" class="sr-only">Education</label>
             <input type="text" id="education" name="education" class="form-control" placeholder="Education" required>
 
-
             <button class="btn btn-lg btn-secondary btn-block"  type="submit">Sign up</button>
         </form>
     </div>
