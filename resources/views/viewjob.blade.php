@@ -52,11 +52,7 @@
   </div>
    
 
-    {{-- <script>
-      var collection = '{{ Auth::user()->firstname }}';
-      alert(collection);
-    </script> --}}
-
+@if (Auth::check())
     <script src="https://www.paypal.com/sdk/js?client-id=ATijLTD8Ekmy7GN6JzMhe6z0Uzrf5k3MjBWTxaBauVS3pTljYH976rtcdRDWDr5flhvUPWcLP9upRILh&currency=PHP" data-sdk-integration-source="button-factory"></script>
     <script>
       function initPayPalButton() {
@@ -72,14 +68,17 @@
               purchase_units: [{"description":"Publish Job Posting","amount":{"currency_code":"PHP","value":1}}]
             });
           },
-  
           onApprove: function(data, actions) {
             return actions.order.capture().then(function(orderData) {
-              
-              // Full available details
+            var userid = '{{ Auth::user()->id }}';
+            const test = async () => {
+            const response = await fetch('http://127.0.0.1:8000/api/update-user-status?userid=' + userid, { method: 'post' })
+            console.log(response)
+            }
+            test()  
               console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+              location.reload()
               alert("Payment successful!");
-              
             });
           },
   
@@ -90,4 +89,5 @@
       }
       initPayPalButton();
     </script>
+@endif
 </div>

@@ -40,6 +40,7 @@ Route::get('/blank', function () {
 
 Route::post('/createaccount', [UserController::class, 'update'])->name('createaccount');
 
+
 Route::get('/actions.editprofile/{id}', [UserController::class, 'edit'])->name('actions.editprofile');
 
 Route::get('/actions.delesave/{id}', [JobSaveController::class, 'delete'])->name('actions.delesave');
@@ -51,6 +52,7 @@ Route::post('/savejob/{id}', [JobSaveController::class, 'create'])->name('savejo
 Route::post('/applyjob/{id}', [JobApplicantController::class, 'create'])->name('applyjob');
 
 Route::get('/appliedjobs/{id}', [JobApplicantController::class, 'index'])->name('appliedjobs');
+
 
 // jobpost
 Route::post('/postjob', [JobPostController::class, 'create'])->name('postjob');

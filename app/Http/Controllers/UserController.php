@@ -25,6 +25,17 @@ class UserController extends Controller
         return redirect()->route('home')->with('success', ' Successfully added!');
     }
 
+    public function updateUserStatus(Request $request)
+    {
+        // dd($request);
+        $user = User::find($request->userid);
+        $user->status = 'paid';
+        // $user->status = $request->input('status');
+        $user->save();
+
+        return response()->json(['success' => true]);
+    }
+
     public function edit($id)
     {
         $user = User::find($id);
