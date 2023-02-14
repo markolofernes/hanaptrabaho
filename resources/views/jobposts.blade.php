@@ -47,8 +47,6 @@
         @endforeach
     </div>
 
-
-
 @if (Auth::check())
     <script src="https://www.paypal.com/sdk/js?client-id=ATijLTD8Ekmy7GN6JzMhe6z0Uzrf5k3MjBWTxaBauVS3pTljYH976rtcdRDWDr5flhvUPWcLP9upRILh&currency=PHP" data-sdk-integration-source="button-factory"></script>
     <script>
@@ -65,7 +63,6 @@
               purchase_units: [{"description":"Publish Job Posting","amount":{"currency_code":"PHP","value":1}}]
             });
           },
-  
           onApprove: function(data, actions) {
             return actions.order.capture().then(function(orderData) {
             var userid = '{{ Auth::user()->id }}';
@@ -80,7 +77,6 @@
               alert("Payment successful!");
             });
           },
-  
           onError: function(err) {
             console.log(err);
           }

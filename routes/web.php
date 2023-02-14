@@ -22,10 +22,6 @@ use App\Http\Controllers\JobApplicantController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
@@ -40,7 +36,6 @@ Route::get('/blank', function () {
 
 Route::post('/createaccount', [UserController::class, 'update'])->name('createaccount');
 
-
 Route::get('/actions.editprofile/{id}', [UserController::class, 'edit'])->name('actions.editprofile');
 
 Route::get('/actions.delesave/{id}', [JobSaveController::class, 'delete'])->name('actions.delesave');
@@ -53,7 +48,6 @@ Route::post('/applyjob/{id}', [JobApplicantController::class, 'create'])->name('
 
 Route::get('/appliedjobs/{id}', [JobApplicantController::class, 'index'])->name('appliedjobs');
 
-
 // jobpost
 Route::post('/postjob', [JobPostController::class, 'create'])->name('postjob');
 
@@ -65,13 +59,11 @@ Route::post('/actions.updatejobentry/{id}', [JobPostController::class, 'update']
 
 Route::get('/deletejob/{id}', [JobPostController::class, 'delete'])->name('deletejob');
 
-// Route::post('//{id}', [InterviewController::class, 'create'])->name('createinterviewappointment');
-
 Route::post('/createinterview', [InterviewController::class, 'create'])->name('createinterview');
 
-Route::any('/createinterviewappointment', function () {
-    return view('createinterviewappointment');
-})->name('createinterviewappointment');
+// Route::any('/createinterviewappointment', function () {
+//     return view('createinterviewappointment');
+// })->name('createinterviewappointment');
 
 Route::any('/actions.createjobpost', function () {
     return view('actions.createjobpost');
@@ -80,7 +72,6 @@ Route::any('/actions.createjobpost', function () {
 Route::get('/jobposts/{id}', [HomeController::class, 'myjobpost'])->name('/');
 
 Route::get('/viewjob/{id}', [HomeController::class, 'viewjob'])->name('viewjob');
-
 
 Route::post('/actions.postresume', [ResumeController::class, 'create'])->name('actions.postresume');
 
@@ -114,7 +105,6 @@ Route::get('/generate-resume-pdf/{id}', function () {
     return $pdf->stream('resume.pdf');
 })->name('generate-resume-pdf');
 
-
 Route::get('/view-resume-pdf/{id}', function ($id) {
     $Resume = App\Models\Resume::all();
     $data = [
@@ -125,7 +115,6 @@ Route::get('/view-resume-pdf/{id}', function ($id) {
     return $pdf->stream('resume.pdf');
 })->name('view-resume-pdf');
 
-
 Route::get('/generate-resume-download-pdf/{id}', function () {
     $Resume = App\Models\Resume::all();
     $data = [
@@ -135,6 +124,9 @@ Route::get('/generate-resume-download-pdf/{id}', function () {
     return $pdf->download('resume.pdf');
 })->name('generate-resume-download-pdf');
 
+Route::get('sendemail', [MailController::class, 'sendmail'])->name('sendemail');
+
+Route::get('/jobs.search', [HomeController::class, 'search'])->name('jobs.search');
 
 Route::get('/clear', function () {
     Artisan::call('cache:clear');
@@ -146,7 +138,3 @@ Route::get('/clear', function () {
     return 'Cleared! <br><a href="/"> back </a>';
 
 });
-
-Route::get('sendemail', [MailController::class, 'sendmail'])->name('sendemail');
-
-Route::get('/jobs.search', [HomeController::class, 'search'])->name('jobs.search');

@@ -24,7 +24,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function employerdashboard()
+    public function dashboard()
     {
         // dd(JobPost::all());
         return view('home')

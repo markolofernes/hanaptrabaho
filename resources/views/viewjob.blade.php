@@ -81,7 +81,6 @@
               alert("Payment successful!");
             });
           },
-  
           onError: function(err) {
             console.log(err);
           }
