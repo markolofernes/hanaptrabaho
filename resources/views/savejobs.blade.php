@@ -38,7 +38,6 @@
                     <thead>
                     </thead>
                     <tbody>
-
                         @forelse ((Auth::user()->jobposts)->sortByDesc('created_at') as $jobpost)
                             <div class="card px-2 mx-1 mt-3 mb-5 shadow-lg"> Job ID: {{ $jobpost->id }}
                                 <h5>{{ $jobpost->jobtitle }}</h5>

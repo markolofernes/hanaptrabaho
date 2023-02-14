@@ -13,15 +13,14 @@ class SearchJobs extends Component
 
     public function render()
     {
-        if ($this->search == '*') {
-            return view('livewire.search-jobs', [
-                'jobposts' => JobPost::all(),
-            ]);
-        } else {
-
-            return view('livewire.search-jobs', [
-                'jobposts' => JobPost::where('jobtitle', $this->search)->get(),
-            ]);
+        $searchTerms = explode(' ', $this->search);
+        $jobposts = JobPost::query();
+        foreach ($searchTerms as $term) {
+            $jobposts->where('jobtitle', 'like', '%' . $term . '%');
         }
+        return view('livewire.search-jobs', [
+            'jobposts' => $jobposts->get(),
+        ]);
     }
+
 }

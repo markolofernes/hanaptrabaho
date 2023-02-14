@@ -79,16 +79,13 @@
             <div class="col-sm"><h3 class="pt-4 text-center">Job feeds</h3></div>
             <div class="d-flex flex-row">
                 <div class="col-sm"> <button id="toggle-btn" class="btn btn-sm text-white">🔍Toggle Job Search</button></div>
-                
             </div>
-
-<div id="component-1" style="display: none;">
-    <livewire:search-jobs />
-</div>
-<div id="component-2">
+            <div id="component-1" style="display: none;">
+                <livewire:search-jobs />
+            </div>
+            <div id="component-2">
             <div class="row">
 
-            {{-- <livewire:search-jobs /> --}}
                 <div class="col-4 jobtableoverflow-y">
                     @foreach ($users as $user)
                         @forelse ($jobposts as $jobpost)
@@ -112,23 +109,20 @@
                     <div>
                         @if (isset($jobpost))
                             @if ($jobpost->user->status == 'paid')
-                                <iframe scrolling="no" class="xframe shadow-lg" id="myFrame" src='/jobposts/{{ $jobpost->id }}'></iframe>        
+                                <iframe scrolling="no" class="xframe shadow-lg" id="myFrame1" src='/jobposts/{{ $jobpost->id }}'></iframe>        
                             @endif
                         @endif
                     </div>
                 </div>
             </div>
-</div>  
-
-        </div>
+        </div>  
+    </div>
     <div class="col-1"></div>
 </div>
 <script>
 function myFunction(value) {
-  document.getElementById("myFrame").src = value;
+  document.getElementById("myFrame1").src = value;
   }
 </script>
-
-
    
 @endsection

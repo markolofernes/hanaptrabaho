@@ -110,10 +110,6 @@ class JobPostController extends Controller
     {
         $jobpost = JobPost::find($id);
 
-        // if ($twat->image_path != NULL) {
-        //     Storage::delete('/public/images/' . $twat->image_path);
-        // }
-
         if (Auth::user()->id == $jobpost->user->id) {
             $jobpost->delete();
             return redirect()->route('home')->with('message', "Job entry deleted!");

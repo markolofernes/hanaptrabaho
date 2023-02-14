@@ -13,9 +13,6 @@ class Employerjobpost extends Component
 
     public function index()
     {
-        // $user = Account::find(1)->user;
-        // return view('home', compact('user'));
-        // return view('home');
         return view('livewire.employerjobpost')
             ->with('jobposts', JobPost::orderBy('created_at', 'asc')->get())
             ->with('jobposts', User::all());
@@ -29,25 +26,12 @@ class Employerjobpost extends Component
 
     }
 
-    // public $newJobpost;
-    // public function mount()
-    // {
-    //     $this->newJobpost = "test new jobpost";
-    // }
-
     public function deleteId($id)
     {
         $jobpost = JobPost::find($id);
 
-        // if ($twat->image_path != NULL) {
-        //     Storage::delete('/public/images/' . $twat->image_path);
-        // }
-
         if (Auth::user()->id == $jobpost->user->id) {
             $jobpost->delete();
-            // return redirect()->route('home')->with('success', "Job deleted!");
-        } else {
-            // return redirect()->route('home');
         }
     }
 }
