@@ -61,15 +61,18 @@ Route::get('/deletejob/{id}', [JobPostController::class, 'delete'])->name('delet
 
 // Route::get('/actions.sendinterview', [InterviewController::class, 'create'])->name('actions.sendinterview');
 
+Route::get('/actions.sendinterview{id}', [UserController::class, 'toninterview'])->name('actions.sendinterview');
 
-Route::any('/actions.sendinterview/{id}', function ($id) {
-    $users = App\Models\User::all();
-    $users = [
-        'user' => $users,
-        'user_id' => $id,
-    ];
-    return view('actions.sendinterview');
-})->name('actions.sendinterview');
+Route::get('/actions.hire{id}', [UserController::class, 'tohire'])->name('actions.hire');
+
+// Route::any('/actions.sendinterview/{id}', function ($id) {
+//     $users = App\Models\User::all();
+//     $users = [
+//         'user' => $users,
+//         'user_id' => $id,
+//     ];
+//     return view('actions.sendinterview');
+// })->name('actions.sendinterview');
 
 // Route::any('/actions.sendinterview', function () {
 //     return view('actions.sendinterview');
@@ -134,7 +137,7 @@ Route::get('/generate-resume-download-pdf/{id}', function () {
     return $pdf->download('resume.pdf');
 })->name('generate-resume-download-pdf');
 
-Route::get('sendemail', [MailController::class, 'sendmail'])->name('sendemail');
+Route::any('sendemail', [MailController::class, 'sendmail'])->name('sendemail');
 
 Route::get('/jobs.search', [HomeController::class, 'search'])->name('jobs.search');
 

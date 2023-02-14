@@ -27,7 +27,6 @@ class InterviewController extends Controller
     {
         // dd($request);
         $interview = new Interview;
-        $interview->appointmentdate = $request->appointmentdate;
         $interview->description = $request->description;
 
         $interview->save();

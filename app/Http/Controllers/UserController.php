@@ -41,5 +41,14 @@ class UserController extends Controller
         $user = User::find($id);
         return view('actions.editprofile')->with('user', $user);
     }
-
+    public function toninterview($id)
+    {
+        $user = User::find($id);
+        return view('actions.sendinterview')->with('user', $user);
+    }
+    public function tohire($id)
+    {
+        $user = User::find($id);
+        return view('actions.hire')->with('user', $user);
+    }
 }
