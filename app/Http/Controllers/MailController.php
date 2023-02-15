@@ -27,7 +27,7 @@ class MailController extends Controller
                 'html' => $emailContent
             ]
         );
-        
+        return redirect()->route('home')->with('success', 'Email Sent✔');
 
     }
 }
