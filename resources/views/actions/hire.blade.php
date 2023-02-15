@@ -25,8 +25,15 @@
                 <p><strong>{{ Auth::user()->firstname }} {{ Auth::user()->lastname }},</strong></p>
                 <h3><strong>{{ Auth::user()->companyname }}</strong></h3>
             </textarea>
-            <button type="submit" class="text-black form-control btn btn-warning mt-3">Send</button>
-            
+            <br><hr class="small">
+            <div class="row">
+                <div class="col">
+                    <a type="button" class="rounded text-black form-control btn btn-danger mt-3" href="/home">Cancel</a>
+                </div>
+                <div class="col">
+                    <button type="submit" class="text-black form-control btn btn-warning mt-3">Send</button>
+                </div>
+            </div>
         </form>
     </div>
     <div class="col-1"></div>

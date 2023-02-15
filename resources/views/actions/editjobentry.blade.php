@@ -24,8 +24,15 @@
                                 <textarea class="ckeditor form-control" name="jobdescription" required>{{ $jobpost->jobdescription }}</textarea>
                                 <label class="sr-only mt-1" for="salary">Salary</label>
                                 <input class="text-black form-control mb-2" type="text" id="salary" name="salary" value="{{ $jobpost->salary }}" required>
-
-                                <button type="submit" class="text-black form-control btn btn-warning mt-3">Update</button>
+                                <br><hr class="small">
+                                <div class="row">
+                                    <div class="col">
+                                        <a type="button" class="rounded text-black form-control btn btn-danger mt-3" href="/home">Cancel</a>
+                                    </div>
+                                    <div class="col">
+                                        <button type="submit" class="text-black form-control btn btn-warning mt-3">Update</button> 
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -42,5 +49,4 @@
 ]
 });
     </script>
-
 @endsection

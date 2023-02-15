@@ -9,24 +9,25 @@
             <h2 class="text-center">Profile Edit</h2><hr>
             <input type="hidden" id="accounttype" name="accounttype" id="seeker" value="{{ $user->accounttype }}">
 
-            <div class="col-5">
-                <label for="firstname" class="sr-only mt-3">First Name</label>
-                <input type="text" id="firstname" name="firstname" class="form-control text-black" value="{{ $user->firstname }}" required>
-            </div>
+            <div class="row">
 
-            <div class="col-2">
-                <label for="midname" class="sr-only mt-3">M.I.</label>
-                <input type="text "maxlength="4" size="4" id="midname" name="midname" class="form-control text-black" value="{{ $user->midname }}" required>
-            </div>
+                <div class="col-5">
+                    <label for="firstname" class="sr-only mt-3">First Name</label>
+                    <input type="text" id="firstname" name="firstname" class="form-control text-black" value="{{ $user->firstname }}" required>
+                </div>
+                <div class="col-2">
+                    <label for="midname" class="sr-only mt-3">M.I.</label>
+                    <input type="text "maxlength="4" size="4" id="midname" name="midname" class="form-control text-black" value="{{ $user->midname }}" required>
+                </div>
 
-            <div class="col-5">
-                <label for="lastname" class="sr-only mt-3">Last Name</label>
-                <input type="text" id="lastname" name="lastname" class="form-control text-black" value="{{ $user->lastname }}" required>
+                <div class="col-5">
+                    <label for="lastname" class="sr-only mt-3">Last Name</label>
+                    <input type="text" id="lastname" name="lastname" class="form-control text-black" value="{{ $user->lastname }}" required>
+                </div>
             </div>
             
             <label for="phone" class="sr-only mt-3">Phone</label>
             <input type="text" id="phone" name="phone" class="form-control text-black" value="{{ $user->phone }}" required>
-
 
             <label for="address" class="sr-only mt-3">Address</label>
             <input type="text" id="address" name="address" class="form-control text-black" value="{{ $user->address }}" required>
@@ -44,7 +45,15 @@
                 
                 <input type="{{$typeEmployer}}" id="companyname" name="companyname" class="form-control text-black" value="{{ $user->companyname }}" required>
             </div>
-            <button class="btn btn-lg btn-secondary btn-block mt-4 form-control"  type="submit">Confirm</button>
+            <br><hr class="small">
+            <div class="row">
+                <div class="col">
+                    <a type="button" class="rounded text-black form-control btn btn-danger mt-3" href="/home">Cancel</a>
+                </div>
+                <div class="col">
+                    <button class="rounded text-black form-control btn btn-warning mt-3"  type="submit">Confirm</button> 
+                </div>
+            </div>
         </form>
     </div>
     <div class="col-1"></div>

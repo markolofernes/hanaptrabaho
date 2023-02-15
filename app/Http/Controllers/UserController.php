@@ -27,10 +27,8 @@ class UserController extends Controller
 
     public function updateUserStatus(Request $request)
     {
-        // dd($request);
         $user = User::find($request->userid);
         $user->status = 'paid';
-        // $user->status = $request->input('status');
         $user->save();
 
         return response()->json(['success' => true]);
@@ -38,8 +36,12 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('actions.editprofile')->with('user', $user);
+        if (Auth::User()->id == $id) {
+            $user = User::find($id);
+            return view('actions.editprofile')->with('user', $user);
+        } else {
+            return redirect()->route('home');
+        }
     }
     public function toninterview($id)
     {
@@ -48,6 +50,14 @@ class UserController extends Controller
     }
     public function tohire($id)
     {
+        // if (Auth::User()->id == $id) {
+        //     $user = User::find($id);
+        //     return view('actions.editprofile')->with('user', $user);
+        // } else {
+        //     return view('home');
+        // }
+
+
         $user = User::find($id);
         return view('actions.hire')->with('user', $user);
     }

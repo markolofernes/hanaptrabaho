@@ -55,9 +55,3 @@ function cleariframe() {
     document.getElementById("myFrame").src = 'blank';
 }
 </script>
-{{-- onmouseover="myOverFunction('/jobposts/{{ $jobpost->id }}')" --}}
-{{-- <script>
-    function myOverFunction(value) {
-         document.getElementById("myFrame").src = value;
-    }
-</script> --}}
