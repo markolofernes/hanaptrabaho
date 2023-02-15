@@ -23,9 +23,11 @@ class MailController extends Controller
                 // $request->user->email;
                 "to" => "markolofernes52615@gmail.com",
                 "subject" => $subject,
-                'text' => ($emailContent, 'text/html')
+                'text' => $emailContent,
+                'html' => $emailContent
             ]
         );
+        
 
     }
 }

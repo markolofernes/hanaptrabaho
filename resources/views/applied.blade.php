@@ -55,7 +55,7 @@
                                                             <a href="{{ route('view-resume-pdf', $user->id) }}"  target="_blank">📄 View Resume</a>
                                                         @endif
                                                     @endforeach
-                                                    |<a href="{{ route('actions.sendinterview', $user->id )}}" target="_blank">🖊 Iterview</a>
+                                                    |<a href="{{ route('actions.sendinterview', $user->id )}}" target="_blank">🖊 Interview</a>
                                                     |<a href="{{ route('actions.hire', $user->id )}}" target="_blank">🤝 Hire!</a>
                                                 </div>
                                             </div>
