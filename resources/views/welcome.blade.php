@@ -40,6 +40,12 @@
     <div class="col-1"></div>
         <div style="margin:0 auto; min-width:500px; max-width:1400px" class="col-10 card px-3 pb-3">
             <div class="col-sm"><h3 class="pt-4 text-center">Job feeds</h3></div>
+
+{{-- <div class="container-fluid d-flex justify-content-center">
+    <div class="col-1"></div>
+        <div class="col-10 card px-3 pb-3">
+            <div class="col-sm"><h3 class="pt-4 text-center ms-5 ps-3">Job feeds</h3></div>
+>>>>>>> d16f6923715a84d4ef3c54ad00da4e9d43fc537a --}}
             <div class="d-flex flex-row">
                 <div class="col-sm"> <button id="toggle-btn" class="btn btn-sm text-white">🔍Toggle Job Search</button></div>
             </div>
@@ -49,9 +55,9 @@
             <div id="component-2">
             <div class="row">
 
-                <div class="col-4 jobtableoverflow-y">
-                    @foreach ($jobposts as $jobpost)
-                        @forelse ($users as $user)
+                <div class="col-5 jobtableoverflow-y">
+                    @foreach ($users as $user)
+                        @forelse ($jobposts as $jobpost)
                             @if ($user->id == $jobpost->user_id && $user->status == 'paid')
                                 <div id="{{ $jobpost->id }}" class="card cursorpointer p-3 mx-1 my-5 shadow-lg" onclick="myFunction('/jobposts/{{ $jobpost->id }}')">
                                 <h5>{{ $jobpost->jobtitle }}</h5>   
@@ -68,7 +74,7 @@
                         @endforelse     
                     @endforeach
                 </div>
-                <div id="jobpost" class="col-8">
+                <div id="jobpost" class="col-7">
                     <div>
                         @if (isset($jobpost))
                             @if ($jobpost->user->status == 'paid')
