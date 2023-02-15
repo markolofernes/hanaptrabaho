@@ -50,8 +50,8 @@
             <div class="row">
 
                 <div class="col-4 jobtableoverflow-y">
-                    @foreach ($users as $user)
-                        @forelse ($jobposts as $jobpost)
+                    @foreach ($jobposts as $jobpost)
+                        @forelse ($users as $user)
                             @if ($user->id == $jobpost->user_id && $user->status == 'paid')
                                 <div id="{{ $jobpost->id }}" class="card cursorpointer p-3 mx-1 my-5 shadow-lg" onclick="myFunction('/jobposts/{{ $jobpost->id }}')">
                                 <h5>{{ $jobpost->jobtitle }}</h5>   

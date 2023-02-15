@@ -31,7 +31,7 @@
                     {{ $HomeAddress = $resume->address }}
                     {{ $emailaddress = $resume->email }}
                     {{ $description = $resume->textarea }}
-                    {{ $myskills = $resume->skills }}
+                    {{-- {{ $myskills = $resume->skills }} --}}
                     {{ $mylanguage = $resume->language }}
                 @endif
             @endforeach
@@ -42,8 +42,9 @@
 <h6>{{ $Contact }}</h6>
 <i>{{ $HomeAddress }}</i><br>
 <i>{{ $emailaddress }}</i><br><br>
-<h5>{!! $description !!}</h5>   
-<h6>{{ $myskills }}</h6>
+<h5>{!! $description !!}</h5><br>   
+{{-- <h6>{{ $myskills }}</h6> --}}
+<h5>Language</h5>
 <h6>{{ $mylanguage }}</h6>
 
 
