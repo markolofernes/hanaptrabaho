@@ -22,7 +22,7 @@ class UserController extends Controller
         // $user->status = $request->accounttype;
         $user->save();
 
-        return redirect()->route('home')->with('success', ' Successfully added!');
+        return redirect()->route('home');
     }
 
     public function updateUserStatus(Request $request)
