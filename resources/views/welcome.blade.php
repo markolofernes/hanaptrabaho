@@ -36,10 +36,10 @@
     </div>
 </div>
 
-<div class="container d-flex justify-content-center">
+<div class="container-fluid d-flex justify-content-center">
     <div class="col-1"></div>
         <div class="col-10 card px-3 pb-3">
-            <div class="col-sm"><h3 class="pt-4 text-center">Job feeds</h3></div>
+            <div class="col-sm"><h3 class="pt-4 text-center ms-5 ps-3">Job feeds</h3></div>
             <div class="d-flex flex-row">
                 <div class="col-sm"> <button id="toggle-btn" class="btn btn-sm text-white">🔍Search Job</button></div>
             </div>
@@ -49,7 +49,7 @@
             <div id="component-2">
             <div class="row">
 
-                <div class="col-4 jobtableoverflow-y">
+                <div class="col-5 jobtableoverflow-y">
                     @foreach ($users as $user)
                         @forelse ($jobposts as $jobpost)
                             @if ($user->id == $jobpost->user_id && $user->status == 'paid')
@@ -68,7 +68,7 @@
                         @endforelse     
                     @endforeach
                 </div>
-                <div id="jobpost" class="col-8">
+                <div id="jobpost" class="col-7">
                     <div>
                         @if (isset($jobpost))
                             @if ($jobpost->user->status == 'paid')
