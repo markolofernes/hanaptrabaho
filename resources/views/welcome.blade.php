@@ -36,12 +36,12 @@
     </div>
 </div>
 
-<div class="d-flex justify-content-center">
+<div class="container d-flex justify-content-center">
     <div class="col-1"></div>
-        <div style="margin:0 auto; min-width:500px; max-width:1400px" class="col-10 card px-3 pb-3">
+        <div class="col-10 card px-3 pb-3">
             <div class="col-sm"><h3 class="pt-4 text-center">Job feeds</h3></div>
             <div class="d-flex flex-row">
-                <div class="col-sm"> <button id="toggle-btn" class="btn btn-sm text-white">🔍Toggle Job Search</button></div>
+                <div class="col-sm"> <button id="toggle-btn" class="btn btn-sm text-white">🔍Search Job</button></div>
             </div>
             <div id="component-1" style="display: none;">
                 <livewire:search-jobs />
