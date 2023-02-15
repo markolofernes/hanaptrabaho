@@ -4,8 +4,8 @@
             <div style="margin: 0 auto;" class="jobtableoverflow-y">
                 <div  class="row">
                     @forelse ($jobposts as $jobpost)
-                        @if ($jobpost->user->status == 'paid')
-                            <div class="col-4">
+                        @if ($jobpost->user->status == 'paid') 
+                            <div class="col-4 mb-5">
                                 <div id="{{ $jobpost->id }}" class="card cursorpointer mx-3 p-3 shadow-lg" onclick="window.open('/viewjob/{{ $jobpost->id }}', '_blank');">
                                 <h5>{{ $jobpost->jobtitle }}</h5>   
                                 <h6><i>{{ $jobpost->user->companyname }}</i></h6><hr class="hrsmall">

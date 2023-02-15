@@ -3,10 +3,10 @@
 <div class="container">
     <div class="row">
         <div class="dsplyswitch">
-            {{-- <center>
+            <center>
                 <img class="img-fluid mainImgMxSz object-fit-contain border rounded shadow-lg mb-5 bg-body-tertiary"
                     src="\img\mainimg.webp" alt="pinyotrabaho">
-            </center> --}}
+            </center>
         </div>
         <div class="">
             <br>
