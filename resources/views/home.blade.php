@@ -6,6 +6,9 @@
     exit;
     @endphp
 @else
+@if( session('success') )
+<div class="alert alert-warning text-center">{{ session('success') }}</div>
+@endif
 <div class="container">
     <div class="row align-items-center">
         <div class="col hideOn800px">
