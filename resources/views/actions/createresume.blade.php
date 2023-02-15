@@ -38,7 +38,7 @@
                                  <h1> * put resume description here *</h1>
                                 </textarea>
                                 <label for="skills" class="sr-only mt-3">Skills/Expertise</label>
-                                <textarea class="form-control text-black" id="skills" name="skills" rows="3" value="{{ old('skills') }}" required></textarea>
+                                <input type="hide" class="form-control text-black" id="skills" name="skills" rows="3" value="skilled" required></input>
                                 <label for="language" class="sr-only mt-3">Language</label>
                                 <textarea class="form-control text-black" id="language" name="language" rows="3" value="{{ old('language') }}" required></textarea>
                                 <button class="btn btn-lg btn-secondary btn-block mt-4 form-control" type="submit">Confirm</button>

@@ -38,8 +38,8 @@
                                 <textarea id="resumedesc" class="ckeditor form-control" name="textarea" required>{{ $resume->textarea }} 
 
                                 </textarea>
-                                <label for="skills" class="sr-only mt-3">Skills/Expertise</label>
-                                <textarea class="form-control text-black" id="skills" name="skills" rows="3" required> {{ $resume->skills }} </textarea>
+                                {{-- <label for="skills" class="sr-only mt-3">Skills/Expertise</label> --}}
+                                <input type="hidden" class="form-control text-black" id="skills" name="skills" rows="3" value="{{ $resume->skills }} " required> </input>
                                 <label for="language" class="sr-only mt-3">Language</label>
                                 <textarea class="form-control text-black" id="language" name="language" rows="3" required>{{ $resume->language }} </textarea>
                                 <br><hr class="small">

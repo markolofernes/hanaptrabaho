@@ -18,7 +18,7 @@ class ResumeController extends Controller
         $resume->address = $request->address;
         $resume->email = $request->email;
         $resume->textarea = $request->textarea;
-        $resume->skills = $request->skills;
+        // $resume->skills = $request->skills;
         $resume->language = $request->language;
         $resume->save();
 

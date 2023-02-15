@@ -20,8 +20,8 @@ class SearchJobs extends Component
                 $query->where('jobtitle', 'like', '%' . $term . '%')
                     ->orWhere('jobtype', 'like', '%' . $term . '%')
                     ->orWhere('joblocation', 'like', '%' . $term . '%')
-                    ->orWhere('salary', 'like', '%' . $term . '%')
-                    ->orWhere('jobdescription', 'like', '%' . $term . '%');
+                    ->orWhere('salary', 'like', '%' . $term . '%');
+                // ->orWhere('jobdescription', 'like', '%' . $term . '%');
             });
         }
         return view('livewire.search-jobs', [
