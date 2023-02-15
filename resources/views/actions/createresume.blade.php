@@ -37,10 +37,10 @@
                                 <textarea id="resumedesc" class="ckeditor form-control" name="textarea" value="{{ old('textarea') }}" required>
                                  <h1> * put resume description here *</h1>
                                 </textarea>
-                                <label for="skills" class="sr-only mt-3">Skills/Expertise</label>
-                                <input type="hide" class="form-control text-black" id="skills" name="skills" rows="3" value="skilled" required></input>
+                                {{-- <label for="skills" class="sr-only mt-3">Skills/Expertise</label>
+                                <input type="text" class="form-control text-black" id="skills" name="skills" rows="3" value="skilled" required></input> --}}
                                 <label for="language" class="sr-only mt-3">Language</label>
-                                <textarea class="form-control text-black" id="language" name="language" rows="3" value="{{ old('language') }}" required></textarea>
+                                <input type="text"  class="form-control text-black" id="language" name="language" rows="3" value="{{ old('language') }}" required></input>
                                 <button class="btn btn-lg btn-secondary btn-block mt-4 form-control" type="submit">Confirm</button>
                             </form>
                             @endif

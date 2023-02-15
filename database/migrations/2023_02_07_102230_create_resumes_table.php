@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->string('address');
             $table->string('email');
             $table->longText('textarea');
-            $table->longtext('skills')->default('unsigned')->nullable();
+            $table->longtext('skills')->nullable();
             $table->string('language');
             $table->timestamps();
         });

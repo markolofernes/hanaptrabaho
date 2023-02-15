@@ -39,7 +39,7 @@
 
                                 </textarea>
                                 {{-- <label for="skills" class="sr-only mt-3">Skills/Expertise</label> --}}
-                                <input type="hidden" class="form-control text-black" id="skills" name="skills" rows="3" value="{{ $resume->skills }} " required> </input>
+                                {{-- <input type="text" class="form-control text-black" id="skills" name="skills" rows="3" required> {{ $resume->skills }} </input> --}}
                                 <label for="language" class="sr-only mt-3">Language</label>
                                 <textarea class="form-control text-black" id="language" name="language" rows="3" required>{{ $resume->language }} </textarea>
                                 <br><hr class="small">
